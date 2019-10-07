@@ -2,15 +2,76 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage[ngerman]{babel}
 \usepackage{graphicx}
+\usepackage{tikz}
 
 \begin{document}
 
-\title{Introduction to General Relativity and Cosmology}
+\title{Introduction to General Relativity and Cosmology\\\small{Wolfgang Schweiger WS2019/2020}}
 \author{Erik Kraml \\ Tim Sagaster}
 \maketitle
+\setcounter{section}{-1}
+\section{Einleitung und Motivation}
+\subsection*{Einführende Zitate}
+\begin{enumerate}
+\item W.Pauli "The general theory of relativity ....  beauty in its mathematical structure."
+\item M.Born: "(The gerneral theory of relativity) seemed and still seems ... admire it as a work of art."
+\item A.Einstein (to A.Sommerfeld) " At present I occupy myself ... the original relativity is child's play."
 
+\end{enumerate}
 
+\subsection*{Abkürzungen}
+SR ... spezielle Relativitätstheorie \\
+ART ... allgemeine Relativitätstheorie - relativistische Theorie der Gravitation\\
+E-GL ... Einstein-GLeichung
 
+\subsection*{Einführung}
+\begin{itemize}
+\item Äquivalenzprinzip: Gravitationseffekte lassen sich durch Übergang zu geeignet beschleunigtem Bezugssystem wegtransformieren (z.B. Satellitenlabor, ...)
+
+\item Kovarianzprinzip: Physikalische Gleichungen sollen als Tensorgleichungen formuliert werden, da sie in allen Bezugssytemen dieselbe Form aufweisen.
+\end{itemize}
+
+Einstein erkannte, dass man Kräfte die durch Gravitation auftreten in dem metrischen Tensor absorbieren kann. Die Metrik hängt dadurch vom betrachteten Raumzeitpunkt ab. Dies entspricht einer gekrümmten Manigfaltigkeit, daher spricht man von "gekrümmter Raum-Zeit". In diesem Raum muss der kürzeste Weg zwischen zwei Punkten nicht mehr unbedingt die Gerade sein, sondern kann ein Bogen sein.
+
+\subsection*{Einstein-Gleichung}
+Beschreibt Zusammenhang zwischen metrischem Tensor und Massenverteilung im Raum.
+\begin{equation*}
+g_{\mu \nu}(x) \leftrightarrow \text{Massenverteilung im Raum}
+\end{equation*}
+$g_{\mu \nu}(x)$ $\dots$ Raum-Zeit abhängiger metrischer Tensor\\ \\
+Lösung der E-GL für feste Massenverteilung:
+
+\renewcommand{\labelitemi}{$\rightarrow$}
+\begin{itemize}
+\item Metrik in der Nähe eines massiven Sterns\\
+physikalische Konsequenzen: 
+\begin{itemize}
+\item Lichtableitung in der Nähe eier großen Masse
+\item gravitative Rotverschiebung
+\item ART Effekte auf Periheldrehung (insbesondere Merkur) 
+\end{itemize}
+
+\item Gravitationswellen durch beschleunigte Massen \\
+LIGO-Experiment (2015)
+\item Sternentwicklung\\
+\begin{tikzpicture}
+\node (A) at (0,0) {Gaswolke};
+\node (B) at (3,0) {Supernova};
+\node at (7, -1) {Schwarzes Loch};
+\node at (7, 1) {Neutornenstern};
+\node (C) at (5.5,-1) {};
+\node (D) at (5.5,1) {};
+\draw[->] (A) -- (B);
+\draw[->] (B) -- (C);
+\draw[->] (B) -- (D);
+\end{tikzpicture}
+
+\item Geschichte des Universums \\
+Kosmologisches Standardmodell (Robertson-Walker-Metrik)\\
+$R(t) \xrightarrow{t \rightarrow 0} 0$ : Singularität der Lösung (Big Bang)\\
+3K kosmische Hintergrundstrahlung
+\end{itemize}
 
 \end{document}
