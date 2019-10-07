@@ -3,14 +3,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage[ngerman]{babel}
+\usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{mathtools}
+
+%\renewcommand{\vec}[1]{\boldsymbol{#1}}
 
 \begin{document}
 
 \title{Introduction to General Relativity and Cosmology\\\small{Wolfgang Schweiger WS2019/2020}}
 \author{Erik Kraml \\ Tim Sagaster}
 \maketitle
+\newpage
+\tableofcontents
+\newpage
+
+
 \setcounter{section}{-1}
 \section{Einleitung und Motivation}
 \subsection*{Einführende Zitate}
@@ -73,5 +82,47 @@ Kosmologisches Standardmodell (Robertson-Walker-Metrik)\\
 $R(t) \xrightarrow{t \rightarrow 0} 0$ : Singularität der Lösung (Big Bang)\\
 3K kosmische Hintergrundstrahlung
 \end{itemize}
+
+\subsection{Von Newtons Gravitationstheorie zu den Einstein-Gleichungen}
+\underline{Ziel:} relative Verallgemeinerung von Newtons Gravitationstheorie\\
+1687: "Philosophie naturalis principia mathematica"\\
+$N$ Massepunkte die gravitativ wechselwirken: \\
+\begin{equation*}
+m_i \dfrac{g^2\vec{r}_i(t)}{dt^2} = - G \sum^N_{\substack{i,j = 1\\ i \neq j}} \dfrac{m_i m_j (\vec{r} _i(t)-\vec{r}_j(t^\prime))}{|\vec{r}_i(t) - \vec{r}_j(t)|^3}
+\end{equation*}
+
+$\vec{r}_i(t)$ ... Position des $i$-ten Teilchen\\
+$m_i$ ... Masse des $i$-ten Teilchen \\
+$G = (6.67408 \pm 0.00031)\times 10^{-11} \dfrac{m^3}{kg s^2}$ ... Gravitationskonstante (2014 CODATA)
+
+\subsubsection*{Gravitationspotential}
+$m:= m_i$, $\vec{r}(t):= \vec{r}_i(t)$ :
+\begin{equation*}
+\Phi(\vec{r}) = - G \sum_{j \neq i} \dfrac{m_j}{|r^2-r_j^2|} = -G \int d^3r^\prime \dfrac{\rho(\vec{r}^\prime)}{|\vec{r}-\vec{r}^\prime|}
+\end{equation*}
+$\rho(\vec{r}^\prime)=\sum\limits_{j\neq i} m_j \delta^{(3)}(\vec{r}^\prime-\vec{r})$ ... Massendichte
+
+
+Dynamische Gleichung für Massen:
+\begin{equation*}
+\boxed{
+\underbrace{m}_{\text{träge Masse}} \dfrac{d^2\vec{r}(t)}{dt^2} = -\underbrace{m}_{\mathclap{\text{schwere Masse}}} \vec{\nabla} \Phi(\vec{r}(t))
+}
+\end{equation*}
+
+Feldgleichung für Gravitationspotential:
+\begin{equation*}
+\boxed{
+\Delta \Phi = 4 \pi G \rho(\vec{r})
+}
+\end{equation*}
+Vergleich Electrodynamik:
+\begin{equation*}
+m \dfrac{d^2 \vec{r}(t)}{dt^2} = - q \vec{\nabla} \Phi_{el}(\vec{r})
+\end{equation*}
+\begin{equation*}
+\Delta \Phi_{el}(\vec{r}) = 4 \pi \rho_{el}(\vec{r})
+\end{equation*}
+
 
 \end{document}
