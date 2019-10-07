@@ -1,2 +1,1 @@
-# GRC
-Introduction to General Relativity and Cosmology
+Notes on the lecture 'Introduction to General Relativity and Cosmology'
