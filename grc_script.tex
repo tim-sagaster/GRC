@@ -1,13 +1,14 @@
 \documentclass[a4paper, 11pt]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage[ngerman]{babel}
 \usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{mathtools}
 
+\numberwithin{equation}{section}
 %\renewcommand{\vec}[1]{\boldsymbol{#1}}
 
 \begin{document}
@@ -24,16 +25,17 @@
 \section{Einleitung und Motivation}
 \subsection*{Einführende Zitate}
 \begin{enumerate}
-\item W.Pauli "The general theory of relativity ....  beauty in its mathematical structure."
-\item M.Born: "(The gerneral theory of relativity) seemed and still seems ... admire it as a work of art."
-\item A.Einstein (to A.Sommerfeld) " At present I occupy myself ... the original relativity is child's play."
+\item W.Pauli ''The general theory of relativity ....  beauty in its mathematical structure.''
+\item M.Born: ''(The gerneral theory of relativity) seemed and still seems ... admire it as a work of art.''
+\item A.Einstein (to A.Sommerfeld) ''At present I occupy myself ... the original relativity is child's play.''
 
 \end{enumerate}
 
 \subsection*{Abkürzungen}
 SR ... spezielle Relativitätstheorie \\
 ART ... allgemeine Relativitätstheorie - relativistische Theorie der Gravitation\\
-E-GL ... Einstein-GLeichung
+E-GL ... Einstein-GLeichung\\
+IS ... Inertial System
 
 \subsection*{Einführung}
 \begin{itemize}
@@ -42,14 +44,14 @@ E-GL ... Einstein-GLeichung
 \item Kovarianzprinzip: Physikalische Gleichungen sollen als Tensorgleichungen formuliert werden, da sie in allen Bezugssytemen dieselbe Form aufweisen.
 \end{itemize}
 
-Einstein erkannte, dass man Kräfte die durch Gravitation auftreten in dem metrischen Tensor absorbieren kann. Die Metrik hängt dadurch vom betrachteten Raumzeitpunkt ab. Dies entspricht einer gekrümmten Manigfaltigkeit, daher spricht man von "gekrümmter Raum-Zeit". In diesem Raum muss der kürzeste Weg zwischen zwei Punkten nicht mehr unbedingt die Gerade sein, sondern kann ein Bogen sein.
+Einstein erkannte, dass man Kräfte die durch Gravitation auftreten in dem metrischen Tensor absorbieren kann. Die Metrik hängt dadurch vom betrachteten Raumzeitpunkt ab. Dies entspricht einer gekrümmten Manigfaltigkeit, daher spricht man von ''gekrümmter Raum-Zeit''. In diesem Raum muss der kürzeste Weg zwischen zwei Punkten nicht mehr unbedingt die Gerade sein, sondern kann ein Bogen sein.
 
 \subsection*{Einstein-Gleichung}
 Beschreibt Zusammenhang zwischen metrischem Tensor und Massenverteilung im Raum.
 \begin{equation*}
 g_{\mu \nu}(x) \leftrightarrow \text{Massenverteilung im Raum}
 \end{equation*}
-$g_{\mu \nu}(x)$ $\dots$ Raum-Zeit abhängiger metrischer Tensor\\ \\
+$g_{\mu \nu}(x)$ $\dots$ Raum-Zeit abhängiger metrischer Tensor\\
 Lösung der E-GL für feste Massenverteilung:
 
 \renewcommand{\labelitemi}{$\rightarrow$}
@@ -83,46 +85,656 @@ $R(t) \xrightarrow{t \rightarrow 0} 0$ : Singularität der Lösung (Big Bang)\\
 3K kosmische Hintergrundstrahlung
 \end{itemize}
 
-\subsection{Von Newtons Gravitationstheorie zu den Einstein-Gleichungen}
+\subsection{Von Newtons Gravitationstheorie zu den \\Einstein-Gleichungen}
 \underline{Ziel:} relative Verallgemeinerung von Newtons Gravitationstheorie\\
-1687: "Philosophie naturalis principia mathematica"\\
-$N$ Massepunkte die gravitativ wechselwirken: \\
-\begin{equation*}
+1687: ''Philosophie naturalis principia mathematica''\\
+$N$ Massepunkte die gravitativ wechselwirken: 
+\begin{equation}
+\label{glg:0_Newton}
 m_i \dfrac{g^2\vec{r}_i(t)}{dt^2} = - G \sum^N_{\substack{i,j = 1\\ i \neq j}} \dfrac{m_i m_j (\vec{r} _i(t)-\vec{r}_j(t^\prime))}{|\vec{r}_i(t) - \vec{r}_j(t)|^3}
-\end{equation*}
+\end{equation}
 
 $\vec{r}_i(t)$ ... Position des $i$-ten Teilchen\\
-$m_i$ ... Masse des $i$-ten Teilchen \\
-$G = (6.67408 \pm 0.00031)\times 10^{-11} \dfrac{m^3}{kg s^2}$ ... Gravitationskonstante (2014 CODATA)
+$m_i$ ... Masse des $i$-ten Teilchen 
+\begin{equation}
+G = (6.67408 \pm 0.00031)\times 10^{-11} \dfrac{m^3}{kg s^2}
+\end{equation}
+$G$ ... Gravitationskonstante (2014 CODATA)
 
 \subsubsection*{Gravitationspotential}
 $m:= m_i$, $\vec{r}(t):= \vec{r}_i(t)$ :
-\begin{equation*}
-\Phi(\vec{r}) = - G \sum_{j \neq i} \dfrac{m_j}{|r^2-r_j^2|} = -G \int d^3r^\prime \dfrac{\rho(\vec{r}^\prime)}{|\vec{r}-\vec{r}^\prime|}
-\end{equation*}
-$\rho(\vec{r}^\prime)=\sum\limits_{j\neq i} m_j \delta^{(3)}(\vec{r}^\prime-\vec{r})$ ... Massendichte
+\begin{equation}
+\label{glg:0_Gravitationspotential}
+\Phi(\vec{r}) = - G \sum_{j \neq i} \dfrac{m_j}{|\vec{r}(t)-\vec{r}_j(t)|} = -G \int d^3r^\prime \dfrac{\rho(\vec{r}^\prime)}{|\vec{r}-\vec{r}^\prime|}
+\end{equation}
+\begin{equation}
+\label{glg:0_Massendichte}
+\rho(\vec{r}^\prime)=\sum\limits_{j\neq i} m_j \delta^{(3)}(\vec{r}^\prime-\vec{r})
+\end{equation}
+$\rho(\vec{r}^\prime)$ ... Massendichte
 
 
 Dynamische Gleichung für Massen:
-\begin{equation*}
+\begin{equation}
+\label{glg:0_dynamischeGleichungFuerMassen}
 \boxed{
 \underbrace{m}_{\text{träge Masse}} \dfrac{d^2\vec{r}(t)}{dt^2} = -\underbrace{m}_{\mathclap{\text{schwere Masse}}} \vec{\nabla} \Phi(\vec{r}(t))
 }
-\end{equation*}
+\end{equation}
 
 Feldgleichung für Gravitationspotential:
-\begin{equation*}
+\begin{equation}
+\label{glg:0_FeldgleichungGravitationspotential}
 \boxed{
 \Delta \Phi = 4 \pi G \rho(\vec{r})
 }
-\end{equation*}
-Vergleich Electrodynamik:
-\begin{equation*}
+\end{equation}
+Vergleich Electrostatik:
+\begin{equation}
+\label{glg:0_LadungImStatischenElektrischenFeld}
 m \dfrac{d^2 \vec{r}(t)}{dt^2} = - q \vec{\nabla} \Phi_{el}(\vec{r})
-\end{equation*}
-\begin{equation*}
+\end{equation}
+$\Phi_{el}$ ... elektrisches Potential
+
+\begin{equation}
+\label{glg:0 FeldgleichungElektrischesFeld}
 \Delta \Phi_{el}(\vec{r}) = 4 \pi \rho_{el}(\vec{r})
+\end{equation}
+$\rho_{el}$ ... elektrische Ladungsdichte
+
+%%----------------------------------------14.10.-----------------------------------------
+
+\subsubsection*{Relativistische Verallgemeinerung der Elektrostatik $\rightarrow$ Elektrodynamik} 
+\begin{equation}
+\label{glg:0_verallLaplace}
+\Delta \rightarrow \Box = \dfrac{1}{c^2} \dfrac{\partial^2}{\partial t^2} - \Delta
+\end{equation}
+
+\begin{equation}
+\label{glg:0_verallLadungsdichte}
+\rho_{el} \rightarrow (\rho_{el}c, \rho_{el}\vec{v}) = (j^\alpha) \text{      } \alpha = 0,1,2,3
+\end{equation}
+
+\begin{equation}
+\label{glg:0_verallElektrischesFeld}
+\Phi_{el} \rightarrow (\Phi_{el}, \vec{A}) = (A^\alpha) \text{      } \alpha = 0,1,2,3
+\end{equation}
+$A^\alpha$ ... elektrodynamische Potentiale
+
+\begin{equation}
+\label{glg:0_verallElektrischeFeldgleichung}
+\Delta \Phi(t, \vec{r}) = - 4 \pi \rho_{el}(\vec{r}) \rightarrow \Box \underbrace{A^\alpha(t, \vec{x})}_{\mathclap{\text{forminvariant bei relativistischen Transformationen zwischen verschiedenen ISen}}} = \dfrac{4 \pi}{c} j^\alpha(t, \vec{x}) \text{      } \alpha = 0,1,2,3
+\end{equation}
+Maxwell-Gleichungen für elektrodynamische Potentiale in Lorentz-Eichung $\partial_\alpha A^\alpha = 0$
+
+\subsubsection*{Relativistische Verallgemeinerung der Gravitation}
+\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
+\item $\Delta \rightarrow \Box$
+
+\item \ref{glg:0_verallLadungsdichte} kann nicht direkt übernommen werden.\\
+Gesamteladung ist eine erhaltene Größe, hängt \underline{nicht} vom Bewegungszustand der einzelnen Teilchen ab!
+\begin{equation}
+\overbrace{\partial_\alpha j^\alpha = 0}^{\mathclap{\text{Stromerhaltung}}} \Rightarrow \overbrace{\int_{t=const}d^3rj^0 = \int_{t=const}d^3rc \rho_{el}(\vec{r}) = Q}^{\text{Ladungserhaltung}}
+\end{equation}
+\underline{ABER:} Gesatmasse hängt vom Bewegungszustand der einzelnen Teilchen ab.\\
+Erhaltungsgröße $\rightarrow$ gesamte invariante Masse des Systems:
+\begin{equation}
+\underbrace{M^2}_{\mathclap{\text{unabhängig von IS}}} = E^2 - \vec{P^2} \text{abstand} \vec{P} = \sum_{i=1}^N \vec{p}_i \text{abstand} E= \sum_{i=1}^N \sqrt{m_i^2+\vec{p}_i^2}
+\end{equation}
+
+Energie Impuls Tensor:\\
+$(T^{\alpha\beta}) =  $MISSING
+\begin{equation}
+\partial_\beta T^{\alpha\beta} = 0 \Rightarrow MISSING
+\end{equation}
+
+
+\begin{equation}
+\rho \rightarrow MISSING
+\end{equation}
+
+
+\begin{equation}
+\Delta \Phi = 4 \pi \rho \rightarrow \boxed{\Box \underbrace{g^{\alpha \beta}}_{\mathclap{\text{metrischer Tensor}}} \sim G T^{\alpha\beta}   }
+\end{equation}
+\end{itemize}
+
+
+
+
+\newpage
+\section{Spezielle Relativitätstheorie}
+Bezugssystem\\
+räumliche Koordinaten + Uhr (Zeitkoordinate)
+ausgezeichnete Bezugssystem: Inertialsysteme (ISe)
+
+
+\subsubsection*{Galilei'sches Relativitätsprinzip}
+\renewcommand{\labelitemi}{-}
+\begin{itemize}
+\item Alle ISe sind gleichwertig $\rightarrow$ physikalische Gesetze besitzen in allen ISen diesselbe Form (forminvariant bzw. kovariant)
+\item newtons Axiome gelten in allen ISen
+\end{itemize}
+Allgemeinste Übergänge zwischen ISen $\rightarrow$ \underline{Galilei-Transformationen}
+\begin{equation}
+\begin{aligned}
+IS &\rightarrow IS^\prime \\
+\vec{x} &\rightarrow \vec{x}^\prime = \hat{O} \vec{x} + \vec{a} + \vec{v}t \\
+t &\rightarrow t^\prime = t + t_0
+\end{aligned}
+\end{equation}
+
+
+$\hat{O}^{-1} =  \hat{O}^T$ ... Orthogonale Rotationsmatrix
+
+\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
+\item Translation in $t$ um $t_0$
+\item Translation in $\vec{x}$ um $\vec{a}$
+\item Rotation von $\vec{v}$ mit $\hat{O}$
+\item Boost mit $\vec{v}$
+\end{itemize}
+
+Galilei-transformation $\rightarrow$ Probleme mit IS-Unabhängigkeit der \\ Lichtgeschwindigkeit (im Vakuum)
+$c = 299792458 m s^{-1}$
+
+\subsubsection*{Einstein'sches Relativitätsprinzip}
+\renewcommand{\labelitemi}{-}
+\begin{itemize}
+\item Alle ISe sind gleichwertig
+\item Die Maxwell'schen Gleichungen gelten in allen ISen
+\end{itemize}
+4-dimensionale Raum-Zeit
+
+MISSING GRAFIK
+
+''Ereignis'' ... Punkt in der 4-dim Raum-Zeit\\
+$\left(ct over \vec{x}\right) $ ... ''Ortsvektor'' des Ereignisses
+\begin{equation}
+MISSING ortsvektor
+\end{equation} 
+ 
+\subsubsection*{Schreibweise:}
+\begin{itemize}
+\item 4-dim Vektor $x = MISSING$ ohne Vektorpfeil
+\item 3-dim Vektor $\vec{x} = MISSING$ mit Vektorpfeil
+\item Griechische Indizes: $\underbrace{\alpha, \beta, \gamma, ...}_{\mathclap{\text{SRT}}} , \underbrace{\mu, \nu, \rho, ...}_{\mathclap{\text{ART}}}$ bezeichnen Komponenten von 4er Vektoren 
+\item Lateinishce Indizes: $i,j,k,... = 1,2,3$ bezeichnen Komponenten von 3-dim Vektoren
+\item Indizes hochgestellt $\rightarrow$ kontravariante Vektorkomponenten
+\item Indizes tiefgestellt $\rightarrow$ kovariante Vektorkomponenten
+\end{itemize}
+
+
+MISSING GRAFIK\\
+Bewegung durch 4-dim Raum-Zeit $\rightarrow$ Abfolg von Ereignissen $\rightarrow$ Weltline
+
+
+\begin{equation}
+\label{glg:1_Wegelement}
+ds^2 := c^2dt - d\vec{x}^2 = c^2d{t^\prime}^2 - d{\vec{x}^{\prime 2}}
+\end{equation}
+''Wegelement'' in 4-dim Raum-Zeit unabhängig von IS.
+\begin{equation}
+\left| \dfrac{d\vec{x}^\prime}{dt^\prime} \right| = c \Rightarrow c^2dt^{\prime 2}-d\vec{x}^{\prime 2} = 0 \Rightarrow c^2dt^2 - d\vec{x}^2 = 0 \xRightarrow{\ref{glg:1_Wegelement}} \left|\dfrac{d\vec{x}}{dt} \right| = c
+\end{equation}
+
+\subsubsection*{Galilei-Boost}
+
+\begin{equation}
+\begin{aligned}
+&c =\left| \dfrac{d\vec{x}^\prime}{dt^\prime}\right| = \left| \dfrac{d\vec{x}^\prime}{dt}\right| = \left| \dfrac{d(\vec{x}-\vec{v}t)}{dt}\right| = \left| \dfrac{d\vec{x}}{dt} - \vec{v}\right| \leq \left| \dfrac{d\vec{x}}{dt}\right| + \left| \vec{v} \right| \\
+\Rightarrow &\text{ i.a. } \left| \dfrac{d\vec{x}}{dt}\right| \neq c
+\end{aligned}
+\end{equation}
+
+%%----------------------------------------21.10.-----------------------------------------
+Im normalen euklidishcen Raum:
+\begin{equation}
+d \vec{x} = (dx^1)^2 +(dx^2)^2 + (dx^3)^2 = MISSING = MISSING
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+ds^2 &= \underbrace{c^2dt^2}_{(dx^0)^2} - (dx^1)^2 - (dx^2)^2 - (dx^3)^2 = MISSING \\
+&= dx^T\eta dx = \sum^3_{\alpha,\beta = 0} dx^\alpha \eta_{\alpha, \beta} \underset{\mathclap{\text{Einstein'sche Summenkonvention}}}{=} dx^\alpha \eta_{\alpha \beta} dx^\beta
+\end{aligned}
+\end{equation}
+$\eta = (\eta_{\alpha \beta})$ ... metrischer Tensor
+
+
+\subsubsection*{Abstand zwischen zwei beliebigen Punkten}
+AB in 4-dimensionaler Raum-Zeit:
+\begin{equation}
+S^2_{AB} := (x_A- x_B)^2 = \left(x^0_A -x^0_B\right)^2 - \left(\vec{x}_B - \vec{x}_A\right)^2
+\end{equation}
+
+\begin{equation}
+S^2_{AB} = \begin{cases}
+CASE, & MISSING \\
+CASE, & MISSING \\
+CASE, & MISSING
+\end{cases}
+\end{equation}
+
+MISSING GRAFIK
+
+raumartige Punkte sind nicht kausal verbunden ($\nexists$ Signal mit $v \leq c$, das die beiden Punkte verbindet) 
+
+
+\subsubsection*{Definieren des Skalarprodukts}
+
+\begin{equation}
+x \cdot y = x^0y^0 - x^1y^1-x^2y^2-x^3y^3 = x^0y^0- \vec{x} \cdot \vec{y}
+\end{equation}
+
+\begin{equation}
+x \cdot y = MISSING= x^T \eta y
+\end{equation}
+
+
+In Komponenten Schreibweise:
+
+\begin{equation}
+x \cdot y  = x^T \eta y = \sum^3_{\alpha = 0} \sum^3_{\beta = 0} x^\alpha \eta_{\alpha \beta} y^\beta \underset{\mathclap{\text{Einstein'sche  Summenkonvention}}}{=} x^\alpha \eta_{\alpha \beta} y^\beta
+\end{equation}
+
+\subsubsection*{Kovariante Vektorkomponenten}
+
+\begin{equation}
+\begin{aligned}
+y_\alpha := \sum^3_{\beta=0} \eta_{\alpha \beta} y^\beta = \eta_{\alpha \beta} y^\beta\\
+MISSING VEKTOREN
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+x \cdot y = \sum^3_{\alpha = 0} x^\alpha y_\alpha = x^\alpha y_\alpha
+\end{equation}
+
+\begin{itemize}
+\item 4-dim Raum-Zeit + Skalarprodukt $\rightarrow$ \underline{Minkowski Raum}
+\item Skalarprodukt \ref{1.11} induziert Metrik \ref{1.8}
+\end{itemize}
+
+
+Wie sehen allgemeine Übergänge zwischen ISen aus?
+
+Allgemeiner linearer Ansatz (Analog zur Galilei Transformation)
+\begin{equation}
+\begin{aligned}
+\text{IS} &\rightarrow \text{IS}^\prime\\
+x &\rightarrow x^\prime = \Lambda x + b
+\end{aligned}
+\end{equation}
+$b$ ... 4-dim Vektor für Raum-Zeit-Transformation\\
+$\Lambda$ ... 4-dim Matrix für ''Rotation'' in Raum-Zeit
+
+$\Lambda$, $b$ so wählen, dass \ref{1.3} gewährleistet ist.\\
+Für $b$: konstant $\surd$ 
+
+Für räumliche Rotation:
+\begin{equation}
+Lambda = MISSING MATRIX \surd
+\end{equation}
+$\hat{R}$ ... orthogonale Rotationsmatrix ($\hat{R}\hat{R}^T- \hat{R^2} \hat{R} = \hat{1}$)
+
+\begin{itemize}
+\item Bemerkung: Allgemeine Transformation der Form\\
+$x^\prime: \Lambda x + b$\\
+nennt man \underline{Poincaré - Transformation} (wenn sie \ref{1.3} erfüllen)
+\begin{equation*}
+\begin{rcases*}
+\text{det}\hat{R} = 1 \text{ keine Raumspiegelung} \\
+\text{det}\Lambda = 1 \text{ keine Zeitspiegelung} 
+\end{rcases*} \Rightarrow
+\begin{aligned}
+ &\text{Eigentliche } \\ &\text{Poincaré-Transformation}
+\end{aligned}
 \end{equation*}
 
+
+$b=0 \rightarrow$ \underline{Lorentz- Transformation}
+\end{itemize}
+
+Wie sehen Lorentz-Boosts aus?
+
+\begin{equation}
+\begin{aligned}
+dx^\prime = \Lambda dx \\
+dx^{\prime \alpha}\Lambda^\alpha_\beta dx^\beta
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+dx^\prime \cdot dx^\prime = dx^{\prime T} \eta dx^\prime = dx^T \underline{\Lambda^T \eta  \Lambda} dx =^!_\text{\ref{1.3}} dx^T \underline{\eta} dx = dx \cdot dx \\
+\Rightarrow \boxed{\Lambda \eta \Lambda = \eta}
+\end{aligned}
+\end{equation}
+
+\begin{equation*}
+\left( \Lambda^T \right)_\gamma^\alpha \eta_{\alpha \beta} \Lambda^\beta_\delta = \eta_{\gamma\delta}
+\end{equation*}
+
+\begin{equation}
+\boxed{
+\Lambda^\alpha \gamma \eta_{\alpha \beta} \Lambda^\beta_\delta = \eta_{\gamma\delta}
+}
+\end{equation}
+TEIL A
+
+\begin{equation*}
+\begin{aligned}
+MISSING
+\end{aligned}
+\end{equation*}
+TEIL B
+
+
+Für Boost in x-Richtung
+
+\begin{equation}
+\Lambda = \left(\Lambda^\alpha_\beta \right) = MISSING MATRIX
+\end{equation}
+
+Vernachlässige y- und z- Richtung:
+\begin{equation*}
+MISSING MATRIX GLEICHUNG
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\Rightarrow \left(\Lambda^0_0 \right)^2 - \left(\Lambda^1_0 \right)^2 = 1\\
+- \left(\Lambda^1_1 \right)^2 + \left(\Lambda^0_1 \right)^2  = -1 \\
+\Lambda^0_0 \Lambda^0_1 - \Lambda^1_0 \Lambda^1_1 = 0
+\end{aligned}
+\end{equation*}
+
+\begin{equation}
+\begin{aligned}
+\Lambda^0_0 = \cosh \Psi \text{  ,  } \Lambda^1_0 = - \sinh \Psi \text{  1. Gleichung erfüllt} \\
+\text{2.Gleichung} \Rightarrow \Lambda ^1_1 = \cosh \Psi \\
+\text{3.Gleichung} \Rightarrow \Lambda ^0_1 = -\sinh \Psi
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+MISSING MATRIX GLEICHUNG
+\end{equation}
+
+Wie hängt $\Psi$ mit Boostgeschwindigkeit $v$ zusammen?\\
+MISSING GRAFIK\\
+MISSING GRAFIK
+
+Weltlinie des Ursprungs von IS$^\prime$
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+
+\begin{equation}
+\boxed{
+\tanh \Psi = \dfrac{v}{c}}
+\end{equation}
+$\Psi$ ... ''Rapidität''
+
+
+
+$-1 \leq tanh \Psi \leq 1 \Rightarrow \left| \dfrac{v}{c} \right| \leq 1 \Rightarrow c \text{Maximalgeschwindigkeit}$\\
+Mit $\cosh^2 \Psi = \dfrac{1}{1-\tanh \Psi}$ und $\sinh^2\Psi = \dfrac{\tanh^2\Psi}{1-\tanh^2 \Psi}$ folgt 
+
+\begin{equation}
+\begin{aligned}
+MISSING MATRIXGLEICHUNG\\
+\boxed{
+MISSING MATRIXGLEICHUNG \text{  mit  } \gamma = \cosh \Psi = \dfrac{1}{\sqrt{1- \frac{v^2}{c^2}}}
+}
+\end{aligned}
+\end{equation}
+
+MSSING GRAFIK
+
+
+Grenzfall $\left( \dfrac{v}{c} \right) \ll 1$:
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+
+
+\subsubsection*{Geschwindigkeitsaddition}
+
+MISSING GRAFIK
+
+Boosts nur in x-Richtung
+\begin{equation}
+MISSING VEKTORGLEICHUNG
+\end{equation}
+
+Die Rapiditäten werden linear addiert!
+
+\begin{equation}
+\boxed{
+\Psi = \Psi_1 + \Psi_2}
+\end{equation}
+
+\begin{equation*}
+\dfrac{v}{c} = \tanh (\Psi) = \tanh(\Psi_1 \Psi_2) = \dfrac{\tanh \Psi_1 \tanh\Psi_2}{1+\tanh\Psi_1\tanh\Psi} = \dfrac{\frac{v_1}{c}+ \frac{v_2}{c}}{1 + \frac{v_1v_2}{c^2}}
+\end{equation*}
+
+
+\begin{equation}
+\boxed{
+v = \dfrac{v_1+v_2}{1+\frac{v_1v_2}{c^2}}}
+\end{equation}
+
+\begin{equation*}
+v \approx \begin{cases} v_1 + v_2 &    v_1,v_2 \ll c \\
+\rightarrow c   &  v_1 \rightarrow c \text{ oder } v_2 \rightarrow c \end{cases}
+\end{equation*}
+
+MISSING GRAFIK
+
+
+\subsubsection*{Allgemeiner (rotationsfreier) Lorentzboost}
+
+\begin{equation}
+\Lambda(\vec{v}) = MISSINGMATRIX
+\end{equation}
+
+\subsubsection*{Geschwindigkeitsaddition für $\vec{v_1}$, $\vec{v_2}$ beliebig}
+
+\begin{equation*}
+x^4 = \Lambda(\vec{v}_2)x^\prime = \Lambda(\vec{v}_2) \Lambda(\vec{v}_1) x = \Lambda(\vec{v})x
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\vec{v} &= \dfrac{\gamma_1 \gamma_2}{\gamma} \left[ \vec{v}_1 + \dfrac{\vec{v}_2}{\gamma_1} - \vec{v}_1  \dfrac{\vec{v}_1 \vec{v}_2}{\vec{v}_1^2} \left( \dfrac{1}{\gamma_1} -1 \right) \right] \\
+&= \dfrac{\vec{v}_1+ \vec{v}_{2 \parallel}+\vec{v}_{2\perp}\sqrt{1-\frac{v1^2}{c^2}}}{1+\frac{\vec{v}_1\vec{v}_2}{c^2}}
+\end{aligned}
+\end{equation*}
+mit $\vec{v}_{2\parallel} \parallel \vec{v}_1$ und $\vec{v}_{2\perp} \perp \vec{v}_1$
+
+\begin{equation*}
+r_i = \sqrt{1-\frac{\vec{v}_i^2}{c^2}}
+\end{equation*}
+
+\begin{equation}
+r = \Lambda^0_0(\vec{v}) = \gamma_1\gamma_2 \left(1+ \frac{\vec{v}_1 \vec{v}_2}{c^2} \right)
+\end{equation}
+
+%%----------------------------------------28.10.-----------------------------------------
+
+
+
+Größen, die unter LTen $\Lambda$ wie $x=(x^\alpha)$ transformieren
+\begin{align*}
+IS &\xrightarrow{\Lambda} IS^\prime \\
+a &\rightarrow a^\prime = \Lambda a \\
+a ^\alpha &\rightarrow a^{\prime \alpha} = \Lambda^\alpha_\beta a ^\beta
+\end{align*}
+bezeichnet man allgemein als 4-Vektoren, oder Lorentzvektoren
+
+\subsection*{Längenkontraktion und Zeitdilatation}
+Maßstab mit ''\underline{Eigenlänge}'' $l_0$ den in seinem Ruhesystem $IS^\prime$ entlang der $x$-Achse liegt. Weltlinie des Maßstabs im $IS^\prime$:
+\begin{equation*}
+x_1^\prime = MISSINGVEKTOR
+\end{equation*}
+\begin{equation*}
+x_2^\prime = MISSINGVEKTOR
+\end{equation*}
+
+$IS^\prime$ bewege sich relativ zu $IS$ mit Geschwindigkeit $v$ (in $x$-Richtung)\\
+Welche Länge $l$ misst man für den Maßstab im $IS$? \\
+Längenmessung erfolgt zu fester Zeit $t=0$.\\
+Für Anfangspunkt:
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+Für Endpunkt:
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+Längenkontraktion:
+\begin{equation}
+\Rightarrow \boxed{l = \underbrace{\sqrt{1-\frac{v^2}{c^2}}}_{<1} l_0}
+\end{equation}
+Längenkontraktion nur in Bewegungsrichtung
+\begin{equation}
+l_\parallel = \dfrac{1}{\gamma} l_{0\parallel} \text{ , } l_\perp = l_{0 \perp}
+\end{equation}
+
+
+\subsubsection*{Uhrenvergleich}
+Uhr, die im $IS^\prime$ im Ursprung ruht.\\
+$IS^\prime$ bewege sich relativ zu IS mit Geschwindigkeit $v$\\
+In $IS$ 2 synchronisierte Uhren:\\
+eine bei $x_1=0$ und eine bei $x_2 = v t_2$\\
+Die Uhr fliegt bei $x_1 = 0$ vorbei
+
+MISSING GRAFIK
+
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+
+Zum Zeitpunkt $t_2$ passiert die bewegte Uhr den Beobachter bei $vt_2$
+\begin{equation*}
+MISSING MATRIXGLEICHUNG
+\end{equation*}
+
+\begin{equation*}
+\boxed{t= \dfrac{t_0}{\sqrt{1-\frac{v^2}{c^2}}}}
+\end{equation*}
+$t_0$ ... Zeitspanne in $IS^\prime$\\
+$t$ ... Zeitspanne in $IS$
+
+
+\subsection*{Eigenzeit}
+Welche Uhrzeit  $\tau$ eines Teilchens bestimmen, des sich mit $\vec{v}(t)$ in $IS$ bewegt. Betrachten des Teilchens zum Zeitpunkt $t$ in einem $IS^\prime$ das sich mmit Geschwindigkeit $\vec{v}_0 = \vec{v}(t)$ gegenüber $IS$ bewegt. $\rightarrow$ $IS^\prime$ ist das ''momentane Ruheintervall'' des Teilchens.
+\begin{equation*}
+\Rightarrow \vec{v}^\prime \approx 0 \text{ in Zeitintervall } [t^\prime , t^\prime + dt^\prime]
+\end{equation*}
+
+\begin{equation}
+\Rightarrow d\tau = dt^\prime = \sqrt{1 - \frac{v_0^2}{c^2}} dt = \sqrt{1 - \frac{v(t)^2}{c}} dt
+\end{equation}
+''Aufsummation'' über alle infinitesimalen Zeitintervalle
+
+
+Anzeige einer mit $\vec{t}$ bewegten Uhr:
+\begin{equation}
+\boxed{
+\tau = \int^{t_2}_{t_1} dt \sqrt{1-\frac{\vec{v}(t)^2}{c^2}}}
+\end{equation}
+$\tau$ ... Eigenzeit
+
+$\tau$ hängt nicht von $IS$ ab.\\
+$ds^2$ invariant unter LTen.
+\begin{equation}
+d\tau^2 = \dfrac{ds^2}{c^2} \Rightarrow \text{invariant unter LTen}
+\end{equation}
+
+
+\subsection*{Relativistische Mechanik}
+Relativistisch bewegtes Teilchen unter Einfluss einer Kraft; suchen Bewegungsgleichung\\
+In \underline{momentanen Ruhesystem} des Teilchens zum Zeitpunkt $t$ gilt die Newton'sche Bewegungsgleichung:
+\begin{equation}
+\underbrace{m}_{\mathclap{\text{Ruhemasse}}} \dfrac{d\vec{v}^\prime(t^\prime)}{dt^2} = \underbrace{\vec{F}_N}_{\mathclap{\text{Newton'sche Kraft}}} \text{ in } IS^\prime
+\end{equation}
+(Unabhängig von $IS$)
+
+
+versuchen 4-dimensionales Analogon von \ref{1.35} zu finden, das sich im momentanen Ruhesystem auf \ref{1.35} reduziert.
+
+\begin{tabular}{l | p{8cm}}
+Nichtrelativistisch: & Relativistisch \\ \hline
+$\vec{v}(t)= \dfrac{d\vec{x}(t)}{dt}$ & Vierergeschwindigkeit \\
+Räumliche Rotation &  \begin{equation}
+u^\alpha(\tau) = \dfrac{dx^\alpha(\tau)}{d\tau}
+\end{equation} \\
+$\vec{v}(t) \xrightarrow{\hat{R}} \vec{v}^\prime(t) = \hat{R}\vec{v}(t)$ & $\tau$ ... Eigenzeit, unabhängig vom Bezugssystem\\
+& Lorentz-Transformation \\
+& \begin{equation}
+u^\alpha (\tau) \xrightarrow{\Lambda} u^{\prime\alpha}(\tau) = \Lambda^\alpha_\beta u^\beta(\tau)
+\end{equation}\\
+& $d\tau = \dfrac{dt}{\gamma}$\\
+& $\Rightarrow \left(u^\alpha (\tau) \right) = \gamma \left(\dfrac{dx^\alpha}{dt} \right) = \gamma(c, \vec{v}) $
+\end{tabular}
+
+$d\tau = \dfrac{ds}{c}$ invariant unter Lten \\
+$dx^\alpha$ 4-Vektor \\
+$\rightarrow u^\alpha = \dfrac{dx^\alpha}{d\tau}$ 4-Vektor
+
+\subsubsection*{relativistische Verallgemeinerung von \ref{1.35}}
+
+\begin{equation}
+m \dfrac{du^\alpha}{d\tau} = F^\alpha
+\end{equation}
+Forminvariant (kovariant) unter LTen.
+
+\begin{equation}
+m \dfrac{du^\alpha}{d\tau} = F^\alpha \xrightarrow[IS \rightarrow IS^\prime]{\text{LT}} m \dfrac{du^{\prime \alpha}}{d\tau} = F^{\prime \alpha}
+\end{equation}
+Sofern die verallgemeinerte Kraft $F = (F^\alpha)$ wie ein 4-Vektor transformiert
+
+\begin{equation}
+F^\alpha \xrightarrow[IS \rightarrow IS^\prime]{\text{LT } \Lambda} F^{\prime \alpha} = \Lambda^\alpha_\beta F^\beta
+\end{equation}
+$F^\alpha$ ... Minkowskikraft
+
+
+Im momentanen Ruhesystem $IS^\prime (\vec{v}^\prime = 0, \gamma = 1)$
+
+\begin{equation}
+m \left( \dfrac{du^\alpha(\tau)}{d\tau} \right) = m \gamma^\prime \dfrac{d}{dt^\prime} (c,\vec{v}^\prime) = m \left( 0, \dfrac{d\vec{v}^\prime}{dt^\prime} \right) 
+\end{equation}
+
+
+\begin{equation}
+\left(F^{\prime\alpha} \right) = \left(F^{\prime0}, \vec{F}^\prime \right) = \left( 0, \vec{F}_N \right)
+\end{equation}
+
+\begin{equation*}
+m \dfrac{du^\alpha}{d\tau} = F^\alpha \xrightarrow{\vec{v}^\prime = 0} m \dfrac{d\vec{v}^\prime(t^\prime)}{d\tau^\prime} = \vec{F}_N
+\end{equation*}
+
+Minkowskikraft in $IS$, wenn in $IS^\prime$ bekannt.\\
+\begin{equation*}
+IS^\prime \xrightarrow{\Lambda(-\vec{v})} IS
+\end{equation*}
+\begin{equation}
+F^\alpha = \Lambda^\alpha_\beta(-\vec{v}) F^{\prime \beta}
+\end{equation}
+
+Für $\vec{v}= v^1\vec{e}_1$:
+\begin{equation}
+MISSING GLEICHUNG
+\end{equation}
+
+Für $\vec{v}$ beliebig
+\begin{equation}
+MISSING GLEICHUNG
+\end{equation}
 
 \end{document}
