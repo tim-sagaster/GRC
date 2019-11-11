@@ -7,9 +7,12 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{mathtools}
+\usepackage{empheq}
 
 \numberwithin{equation}{section}
 %\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\ubtext}[2]{\underbrace{#1}_{\mathclap{\text{#2}}}}
 
 \begin{document}
 
@@ -719,7 +722,7 @@ m \left( \dfrac{du^\alpha(\tau)}{d\tau} \right) = m \gamma^\prime \dfrac{d}{dt^\
 m \dfrac{du^\alpha}{d\tau} = F^\alpha \xrightarrow{\vec{v}^\prime = 0} m \dfrac{d\vec{v}^\prime(t^\prime)}{d\tau^\prime} = \vec{F}_N
 \end{equation*}
 
-Minkowskikraft in $IS$, wenn in $IS^\prime$ bekannt.\\
+Minkowskikraft in $IS$, wenn in $IS^\prime$ bekannt.
 \begin{equation*}
 IS^\prime \xrightarrow{\Lambda(-\vec{v})} IS
 \end{equation*}
@@ -736,5 +739,309 @@ Für $\vec{v}$ beliebig
 \begin{equation}
 MISSING GLEICHUNG
 \end{equation}
+
+%%----------------------------------------04.11.-----------------------------------------
+\newpage
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT
+
+Ausbesserung Beweis:
+\begin{equation*}
+\Lambda^T \eta \Lambda = \eta  \Rightarrow \Lambda \eta \Lambda^T = \eta
+\end{equation*}
+
+\begin{equation*}
+\Lambda^T \Lambda = 1
+\end{equation*}
+
+\begin{align*}
+\left( \eta^\prime \right)_{\alpha \beta} &= \left( \Lambda^T \eta \Lambda \right)_{\alpha \beta} = \eta_{\alpha \beta} = \left( \Lambda \eta \Lambda^T \right)_{\alpha \beta} = \Lambda_\alpha^\gamma \eta_{\gamma \delta} \left( \Lambda^T \right)^\delta_\beta\\
+&= \Lambda_\alpha^\gamma \Lambda_\beta^\delta \eta_{\gamma \delta}
+\end{align*}
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT
+
+\newpage
+
+\setcounter{equation}{78}
+
+%%----------------------------------------11.11.-----------------------------------------
+
+\subsection*{Elektrodynamik}
+\begin{equation*}
+m \dfrac{du^\alpha}{d\tau} = F^\alpha
+\end{equation*}
+
+
+\subsubsection*{Maxwell Gleichungen}
+
+\begin{empheq}[box=\fbox]{align}
+\vec{\nabla} \cdot \vec{E}  &= 4 \pi \rho_{el} \qquad && \vec{\nabla} \times \vec{B} = \dfrac{4\pi}{c} \vec{j} + \dfrac{1}{c} \dfrac{\partial \vec{E}}{\partial t} \\
+\vec{\nabla} \times \vec{E} &= - \dfrac{1}{2} \dfrac{\partial \vec{B}}{\partial t} \qquad && \vec{\nabla} \cdot \vec{B} = 0
+\end{empheq}
+
+Kontinuitätsgleichung:
+\begin{equation}\label{glg:1_kontinuitaetsgleichungStrom}
+\partial_\alpha j^\alpha = 0
+\end{equation}
+\begin{equation}
+\underbrace{\left( j^\alpha \right)}_{\mathclap{\text{kontra 4-Vektor}}} = \left( c \rho_{el} \cdot \vec{j} \right)
+\end{equation}
+
+
+Aus \ref{glg:1_kontinuitaetsgleichungStrom} folgt Ladungserhaltung 
+
+\begin{equation*}
+\partial_t \int_{\mathbb{R}^3}d^3r j^0 = \int_{\mathbb{R}^3}d^3r \vec{\nabla} \cdot \vec{j} = \int_{\partial \mathbb{R}^3} d\vec{A} \cdot \vec{j} = 0
+\end{equation*}
+
+$Q ... $ Lorentzvektor
+
+
+Feldstärketensor:
+\begin{equation}
+F^{\alpha \beta} =  \begin{pmatrix}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & -B_z & B_y \\
+E_y & B_z & 0 & -B_x \\
+E_z & -B_y & B_x & 0
+\end{pmatrix}
+\end{equation}
+
+\begin{empheq}[box=\fbox]{align}
+\partial_\alpha F^{\alpha \beta} &= \dfrac{4\pi}{c} j^\beta \label{glg:1_partialFeldstaerketensor}\\
+\epsilon^{\alpha \beta \gamma \delta} \partial_\beta F_{\gamma \delta} &= 0
+\end{empheq}
+
+Aus \ref{glg:1_partialFeldstaerketensor} folgt $F^{\alpha \beta}$ kontravarianter Lorentzvektor 2. Stufe
+
+
+\subsection*{Elektrodynamische Potentiale}
+\begin{equation}
+F^{\alpha \beta} = \partial^\alpha A^\beta - \partial^\beta A^\alpha
+\end{equation}
+
+\begin{equation*}
+\left( A^\alpha \right) = \left( \Phi, \vec{A} \right)
+\end{equation*}
+
+$\left( A^\alpha \right) $ bur bis auf 4-divergenz festgelegt, das heißt $F^{\alpha \beta}$ unverändert unter \underline{Eichtransformation}
+\begin{equation}
+A^{\alpha\prime} \rightarrow A^\alpha + \partial^\alpha \chi
+\end{equation}
+
+$\chi (x) ... $ skalares Feld
+
+\subsubsection*{Lorentzeichung}
+
+\begin{empheq}[box=\fbox]{align}
+\partial_\alpha A^\alpha &= 0 \\
+\square A^\alpha &= \dfrac{4 \pi}{c} j^\alpha
+\end{empheq}
+
+\subsection*{Kopplung eines gebundenen Teilchens an ein elektromagnetisches Feld}
+\begin{equation}
+m \dfrac{du^\alpha}{d\tau} = F^\alpha = \dfrac{q}{c} \underbrace{F^{\alpha \beta}}_{\mathclap{\text{relativistische Lorentzkraft}}} u_\beta
+\end{equation}
+
+
+Vergleich mit Lagrangefunktion:
+\begin{equation*}
+L = \underbrace{- mc \sqrt{u^\alpha u_\alpha}}_{\mathclap{\text{freies relativistisches Teilchen}}} - \frac{q}{c} A^\beta u_\beta
+\end{equation*}
+
+Für räumlichen Anteil:
+\begin{equation}
+\dfrac{d}{dt} \dfrac{m \vec{v}}{\sqrt{1 - \frac{v^2}{c^2}}} = \ubtext{q \left( \vec{E} + \frac{\vec{v}}{c} \times \vec{B} \right)}{Lorentzkraft}
+\end{equation}
+
+\subsection*{Energie-Impulstensor}
+
+\begin{equation}
+T^{\alpha \beta}_{em} = \dfrac{1}{4 \pi} \left( F^\alpha_\gamma F^{\gamma \beta} + \dfrac{1}{4} \eta^{\alpha \beta} F_{\gamma \delta F^{\gamma \delta}} \right)
+\end{equation}
+
+$00$-Komponente $...$ Energiedichte
+\begin{equation}
+u_{em} = T_{em}^{00} = \dfrac{1}{4 \pi} \left( \vec{E}^2 + \vec{B}^2 \right)
+\end{equation}
+
+$0i$-Komponente $...$ Energiestromdichte ($\vec{S} ...$ Poyntingvektor)
+
+\begin{equation}
+\vec{S} = c \sum_{i = 1}^3 T_{em}^{0i} \vec{e}_i = \dfrac{c}{4 \pi} \left( \vec{E}^2 + \vec{B}^2 \right)
+\end{equation}
+
+$T^{j0} ...$ Impulsdichten und $T^{ji} ...$ Impulsstromdichten analog 
+
+Aus Maxwellgleichungen folgt:
+\begin{equation}\label{glg:1_partialEnergieImpulsTensor}
+\partial_\alpha T^{\alpha \beta}_{em} = - \dfrac{1}{c} F^{\beta \gamma}j_\gamma
+\end{equation}
+
+
+Im Ladungsfreien Raum ($j_\gamma = 0$)
+\begin{equation}
+\partial_\alpha T_{em}^{\alpha \beta} = 0
+\end{equation}
+
+Für abgeschlossenes System (keine Kopplung an Strom) folgt \\4-Impulserhaltung:
+\begin{equation}
+P^\beta_{em} = \int_{\mathbb{R}^3} d^3r T_{em}^{0\beta} = konst.
+\end{equation}
+
+Für räumliche Komponenten folgt aus \ref{glg:1_partialEnergieImpulsTensor}
+\begin{equation}
+\dfrac{1}{c}F^{i \gamma} j_\gamma \vec{e}_i = \rho \vec{E} + \dfrac{1}{c} \vec{j} + \vec{B} = \underbrace{\vec{f}}_{\mathclap{\text{Lorentzkraftdichte}}}
+\end{equation}
+
+\ref{glg:1_partialEnergieImpulsTensor} kann geschrieben werden als
+\begin{equation}
+\partial_\alpha T^{\alpha \beta}_{em} = - \underbrace{f^\beta}_{\mathclap{\text{Kraftdichte die e.m. Feld auf Stromverteilung ausübt}}}
+\end{equation}
+$\Rightarrow$ Austausch von Energie auf Impuls zwischen e.m. Feld und Strom
+
+
+
+\subsection*{Relativistische Hydrodynamik}
+ideale Flüssigkeiten
+
+$\rho(\vec{r}, t)$ $...$ Massendichte\\
+$\vec{v}(\vec{r}, t) = v^i \vec{e}_i$ $...$ Geschwindigkeitsfeld\\
+$P(\vec{r}, t)$ $...$ isotroper Druck (Skalar, in alle Richtungen gleich) \\
+Viskosität (innere Reibung) vernachlässigbar \\
+Massenelement $\delta m$ mit Volumen $\delta V$
+\begin{align}
+\Delta m \dfrac{d\vec{v}}{dt} &= \Delta \vec{F_N} \nonumber \\ 
+\underbrace{\dfrac{\Delta m}{\Delta V}}_{\mathclap{\rho(\vec{r}, t)}} \dfrac{d\vec{v}(\vec{r}, t)}{dt} &= \underbrace{\dfrac{\Delta \vec{F_N}}{\Delta V}}_{\mathclap{\vec{f}_N(\vec{r}, t)}}
+\end{align}
+
+$\vec{f}_N(\vec{r}, t) = - \underbrace{ \vec{\nabla}  P (\vec{r}, t)}_{\text{Druckgradient}} + \underbrace{\vec{f}_0 (\vec{r}, t)}_{\text{äußere Kraft (z.B. Gravitation)}}$ $...$ Newton'sche Kraftdichte
+
+\begin{equation}
+\begin{aligned}
+d \vec{v}(\vec{r}, t) &= dt \dfrac{d\vec{v}}{dt} +dx \dfrac{d\vec{v}}{dx} +dy \dfrac{d\vec{v}}{dy} + dz \dfrac{d\vec{v}}{dz}\\
+&= \left(\dfrac{\partial \vec{v}}{\partial t} dt + \ubtext{ \left( d\vec{r} \cdot \vec{\nabla} \right)}{$d\vec{v} dt$}  \vec{v} \right) \\
+&= \left(\dfrac{\partial \vec{v}}{\partial t} + \left( d\vec{v} \cdot \vec{\nabla} \right)  \vec{v} \right) dt \\
+\end{aligned}
+\end{equation}
+
+Eulergleichung:
+\begin{equation}
+\rho \left[ \dfrac{\partial \vec{v}}{\partial t} + \left( \vec{v} \cdot \vec{\nabla} \right) \vec{v} \right] = - \vec{\nabla} P + \vec{f}_0
+\label{glg:1_eulergleichung}
+\end{equation}
+
+Kontinuitätsgleichung:
+\begin{equation}
+\dfrac{d \rho}{dt} + \vec{\nabla} \cdot \left( \rho \vec{v} \right) = 0
+\label{glg:1_kontinuitaetsgleichung}
+\end{equation}
+
+\ref{glg:1_eulergleichung} + \ref{glg:1_kontinuitaetsgleichung} nichtrelativistische Feldgleichung einer idealen Flüssigkeit
+
+
+5 unbekannte Felder $\rho$, $P$, $v^i$, aber nur 4 Gleichungen.\\
+Brauche Beziehung zwischen $\rho$ und $P$.\\
+\underline{Beispiele:} 
+\begin{itemize}
+\item $\rho = konst.$ $..$ inkompressible Flüssigkeit
+\item $\dfrac{P}{\rho} = konst.$ $...$ ideales Gas bei festem T 
+\end{itemize}
+
+\subsubsection*{Relativistische Verallgemeinerung?}
+\begin{equation*}
+v^i (\vec{r}, t) \rightarrow u^\alpha(x), x = (x^0, x^1, x^2, x^3)
+\end{equation*}
+linke Seite $\rightarrow \vec{v}$ quadratisch $\rightarrow$ Ansatz:
+\begin{equation}
+M^{\alpha \beta} = \rho u^\alpha u^\beta
+\end{equation}
+$M^{\alpha \beta} \rightarrow$ Kontravarianter Term 2. Stufe 
+
+$\rho(x)$ $...$ Massendichte $\rightarrow$ \underline{Lorentz-Skalar}
+
+\begin{equation*}
+\rho(x) = \rho^\prime(x^\prime) = \dfrac{\Delta m}{\Delta V} = \dfrac{\text{Ruhemasse}}{\text{Eigenvolumen}}
+\end{equation*}
+$\rho^\prime(x^\prime)$ $...$ Dichte des Flüssigkeitselements $\Delta V$ am Ort $x$ im momentanen Ruhesystem $IS^\prime$
+
+\begin{equation}
+\left( u^\alpha \right) = \gamma \left( c, \vec{v} \right)
+\end{equation}
+
+\begin{equation}
+\left( M^{\alpha \beta} \right) = \rho \gamma^2 c^2 \begin{pmatrix}
+1 & \frac{v^1}{c} & \frac{v^2}{c} & \frac{v^3}{c} \\
+\frac{v^1}{c} \\
+\frac{v^2}{c} & & \dfrac{\vec{v}\vec{v}^T}{c} \\
+\frac{v^3}{c} \\
+\end{pmatrix}
+\end{equation}
+
+Analogon zur Ladungsdichte $\rho_{em}$ in Elektrodynamik
+\begin{equation}
+\tilde{\rho} = \dfrac{M^{00}}{c^2} = \gamma^2 \rho = \dfrac{\rho}{1- \frac{v^2}{c^2}}
+\end{equation}
+$\tilde{\rho}$ $...$ Energie Massendichte\\
+$\tilde{\rho}$ transformiert wie $00$-Komponente von Tensor
+
+\begin{equation}\label{glg:1_partial0KomponenteMassenTensor}
+\partial_\beta M^{0 \beta} = c \left[ \partial_t \tilde{\rho} + \partial_k \left(\tilde{\rho} v^k \right) \right]
+\end{equation}
+\begin{equation}\label{glg:1_partialIKomponenteMassenTensor}
+\begin{aligned}
+\partial_\beta M^{i \beta} &=  \partial_t \left( \tilde{\rho} v^i \right) + \partial_k \left(\tilde{\rho} v^i v^k \right) \\
+&= \tilde{\rho} \left( \partial_t v^i + v^k \partial_k v^i \right) + \ubtext{ v^i \left[ \partial_t \tilde{\rho} + \partial_k \left(\tilde{\rho} v^k \right) \right]}{$=0$ wegen Kontinuitätsgleichung}
+\end{aligned}
+\end{equation}
+
+\underline{Für $v \ll c$:}\\
+\ref{glg:1_partial0KomponenteMassenTensor} $\rightarrow$ linke Seite von \ref{glg:1_kontinuitaetsgleichung}\\
+\ref{glg:1_partialIKomponenteMassenTensor} $\rightarrow$ linke Seite von \ref{glg:1_eulergleichung}
+
+
+\underline{Kräftefreier Fall:} ($P=0$, $f_0=0$)\\
+kovariante Verallgemeinerung der Strömungsgleichung
+\begin{equation}\label{glg:1_differentiellerErhaltungssatzImpulsdichte}
+\partial_\beta M^{\alpha \beta} = 0
+\end{equation} 
+
+Kontinuitätsgleichung (für Energiestrom)
+\begin{equation}
+\partial_\beta M^{0 \beta} = 0
+\end{equation}
+
+Eulergleichung (Kontinuitätsgleichung für Impulsstrom)
+\begin{equation}
+\partial_\beta M^{i \beta} = 0
+\end{equation}
+
+\ref{glg:1_differentiellerErhaltungssatzImpulsdichte} differenzieller Erhaltungssatz für 4-Impulsdichte $\Rightarrow$ 4-Impulserhaltung
+
+
+
+
+
 
 \end{document}
