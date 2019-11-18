@@ -99,7 +99,7 @@ m_i \dfrac{g^2\vec{r}_i(t)}{dt^2} = - G \sum^N_{\substack{i,j = 1\\ i \neq j}} \
 
 $\vec{r}_i(t)$ ... Position des $i$-ten Teilchen\\
 $m_i$ ... Masse des $i$-ten Teilchen 
-\begin{equation}
+\begin{equation}\label{glg:0_Gravitationskonstante}
 G = (6.67408 \pm 0.00031)\times 10^{-11} \dfrac{m^3}{kg s^2}
 \end{equation}
 $G$ ... Gravitationskonstante (2014 CODATA)
@@ -183,18 +183,26 @@ Gesamteladung ist eine erhaltene Größe, hängt \underline{nicht} vom Bewegungs
 \underline{ABER:} Gesatmasse hängt vom Bewegungszustand der einzelnen Teilchen ab.\\
 Erhaltungsgröße $\rightarrow$ gesamte invariante Masse des Systems:
 \begin{equation}
-\underbrace{M^2}_{\mathclap{\text{unabhängig von IS}}} = E^2 - \vec{P^2} \text{abstand} \vec{P} = \sum_{i=1}^N \vec{p}_i \text{abstand} E= \sum_{i=1}^N \sqrt{m_i^2+\vec{p}_i^2}
+\underbrace{M^2}_{\mathclap{\text{unabhängig von IS}}} = E^2 - \vec{P^2} \qquad \vec{P} = \sum_{i=1}^N \vec{p}_i \qquad E= \sum_{i=1}^N \sqrt{m_i^2+\vec{p}_i^2}
 \end{equation}
 
-Energie Impuls Tensor:\\
-$(T^{\alpha\beta}) =  $MISSING
+Energie Impuls Tensor:
+\begin{equation*}
+(T^{\alpha\beta}) =  \begin{pmatrix}
+\rho c^2 & \rho c \vec{v}^T \\
+\rho c \vec{v} & \rho \vec{v} \vec{v}^T
+\end{pmatrix}
+\end{equation*}
 \begin{equation}
-\partial_\beta T^{\alpha\beta} = 0 \Rightarrow MISSING
+\partial_\beta T^{\alpha\beta} = 0 \Rightarrow \dfrac{1}{c} \int_{t=konst.}d^3r T^{\alpha 0} = P^\alpha \qquad \alpha = 0,1,2,3
 \end{equation}
-
+''Ladungserhaltung'' 
 
 \begin{equation}
-\rho \rightarrow MISSING
+\rho \rightarrow \begin{pmatrix}
+\rho c^2 & \rho c \vec{v}^T \\
+\rho c \vec{v} & \rho \vec{v} \vec{v}^T
+\end{pmatrix} \sim T^{\alpha \beta}
 \end{equation}
 
 
@@ -255,13 +263,25 @@ MISSING GRAFIK
 ''Ereignis'' ... Punkt in der 4-dim Raum-Zeit\\
 $\left(ct over \vec{x}\right) $ ... ''Ortsvektor'' des Ereignisses
 \begin{equation}
-MISSING ortsvektor
+\begin{pmatrix}
+ct \\
+\vec{x}
+\end{pmatrix} = \begin{pmatrix}
+ct \\ x^1 \\ x^2 \\ x^3
+\end{pmatrix} = \begin{pmatrix}
+x^0 \\ x^1 \\ x^2 \\ x^3
+\end{pmatrix} = x^\alpha  = x \qquad \alpha = 0,1,2,3
 \end{equation} 
  
 \subsubsection*{Schreibweise:}
 \begin{itemize}
-\item 4-dim Vektor $x = MISSING$ ohne Vektorpfeil
-\item 3-dim Vektor $\vec{x} = MISSING$ mit Vektorpfeil
+\item 4-dim Vektor $x = \begin{pmatrix}
+x^0 \\ x^1 \\ x^2 \\x^3 \end{pmatrix} = \begin{pmatrix}
+x^\alpha
+\end{pmatrix}$ ohne Vektorpfeil
+\item 3-dim Vektor $\vec{x} = \begin{pmatrix}
+x^1 \\x^2 \\ x^3
+\end{pmatrix}$ mit Vektorpfeil
 \item Griechische Indizes: $\underbrace{\alpha, \beta, \gamma, ...}_{\mathclap{\text{SRT}}} , \underbrace{\mu, \nu, \rho, ...}_{\mathclap{\text{ART}}}$ bezeichnen Komponenten von 4er Vektoren 
 \item Lateinishce Indizes: $i,j,k,... = 1,2,3$ bezeichnen Komponenten von 3-dim Vektoren
 \item Indizes hochgestellt $\rightarrow$ kontravariante Vektorkomponenten
@@ -274,12 +294,12 @@ Bewegung durch 4-dim Raum-Zeit $\rightarrow$ Abfolg von Ereignissen $\rightarrow
 
 
 \begin{equation}
-\label{glg:1_Wegelement}
+\label{glg:1_wegelement}
 ds^2 := c^2dt - d\vec{x}^2 = c^2d{t^\prime}^2 - d{\vec{x}^{\prime 2}}
 \end{equation}
 ''Wegelement'' in 4-dim Raum-Zeit unabhängig von IS.
 \begin{equation}
-\left| \dfrac{d\vec{x}^\prime}{dt^\prime} \right| = c \Rightarrow c^2dt^{\prime 2}-d\vec{x}^{\prime 2} = 0 \Rightarrow c^2dt^2 - d\vec{x}^2 = 0 \xRightarrow{\ref{glg:1_Wegelement}} \left|\dfrac{d\vec{x}}{dt} \right| = c
+\left| \dfrac{d\vec{x}^\prime}{dt^\prime} \right| = c \Rightarrow c^2dt^{\prime 2}-d\vec{x}^{\prime 2} = 0 \Rightarrow c^2dt^2 - d\vec{x}^2 = 0 \xRightarrow{\ref{glg:1_wegelement}} \left|\dfrac{d\vec{x}}{dt} \right| = c
 \end{equation}
 
 \subsubsection*{Galilei-Boost}
@@ -294,12 +314,18 @@ ds^2 := c^2dt - d\vec{x}^2 = c^2d{t^\prime}^2 - d{\vec{x}^{\prime 2}}
 %%----------------------------------------21.10.-----------------------------------------
 Im normalen euklidishcen Raum:
 \begin{equation}
-d \vec{x} = (dx^1)^2 +(dx^2)^2 + (dx^3)^2 = MISSING = MISSING
+d \vec{x} = (dx^1)^2 +(dx^2)^2 + (dx^3)^2 = \begin{pmatrix}
+dx^1 \\ dx^2 \\ dx^3 \end{pmatrix} \cdot \begin{pmatrix}
+dx^1 \\ dx^2 \\ dx^3 \end{pmatrix} = \begin{pmatrix}
+dx^1 & dx^2 & dx^3 \end{pmatrix} \cdot \begin{pmatrix}
+dx^1 \\ dx^2 \\dx^3\end{pmatrix}
 \end{equation}
 
 \begin{equation}
 \begin{aligned}
-ds^2 &= \underbrace{c^2dt^2}_{(dx^0)^2} - (dx^1)^2 - (dx^2)^2 - (dx^3)^2 = MISSING \\
+ds^2 &= \underbrace{c^2dt^2}_{(dx^0)^2} - (dx^1)^2 - (dx^2)^2 - (dx^3)^2 \\
+&= \underbrace{\begin{pmatrix} dx^0 & dx^1 & dx^2 & dx^3 \end{pmatrix}}_{dx^T} \underbrace{\begin{pmatrix}
+1 & 0 & 0 &0\\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0& 0 & 0 & -1\end{pmatrix}}_{\eta} \underbrace{\begin{pmatrix} dx^0 \\ dx^1 \\ dx^2 \\dx^3 \end{pmatrix}}_{dx} \\
 &= dx^T\eta dx = \sum^3_{\alpha,\beta = 0} dx^\alpha \eta_{\alpha, \beta} \underset{\mathclap{\text{Einstein'sche Summenkonvention}}}{=} dx^\alpha \eta_{\alpha \beta} dx^\beta
 \end{aligned}
 \end{equation}
@@ -308,15 +334,15 @@ $\eta = (\eta_{\alpha \beta})$ ... metrischer Tensor
 
 \subsubsection*{Abstand zwischen zwei beliebigen Punkten}
 AB in 4-dimensionaler Raum-Zeit:
-\begin{equation}
+\begin{equation}\label{glg:1_abstand4DimRaumZeit}
 S^2_{AB} := (x_A- x_B)^2 = \left(x^0_A -x^0_B\right)^2 - \left(\vec{x}_B - \vec{x}_A\right)^2
 \end{equation}
 
 \begin{equation}
 S^2_{AB} = \begin{cases}
-CASE, & MISSING \\
-CASE, & MISSING \\
-CASE, & MISSING
+>0, & \text{Zeitartiger Abstand} \\
+=0, & \text{Lichtartiger Abstand} \\
+<0, & \text{Raumartiger Abstand}
 \end{cases}
 \end{equation}
 
@@ -331,8 +357,10 @@ raumartige Punkte sind nicht kausal verbunden ($\nexists$ Signal mit $v \leq c$,
 x \cdot y = x^0y^0 - x^1y^1-x^2y^2-x^3y^3 = x^0y^0- \vec{x} \cdot \vec{y}
 \end{equation}
 
-\begin{equation}
-x \cdot y = MISSING= x^T \eta y
+\begin{equation}\label{glg:1_skalarprodukt4DimRaumZeit}
+x \cdot y = \begin{pmatrix}x^0 & x^1 & x^2 & x^3\end{pmatrix} \cdot
+\begin{pmatrix} 1 & 0 & 0 &0\\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0& 0 & 0 & -1\end{pmatrix} \cdot \begin{pmatrix}
+y^0 \\ y^1 \\ y^2 \\y^3\end{pmatrix} = x^T \eta y
 \end{equation}
 
 
@@ -346,8 +374,8 @@ x \cdot y  = x^T \eta y = \sum^3_{\alpha = 0} \sum^3_{\beta = 0} x^\alpha \eta_{
 
 \begin{equation}
 \begin{aligned}
-y_\alpha := \sum^3_{\beta=0} \eta_{\alpha \beta} y^\beta = \eta_{\alpha \beta} y^\beta\\
-MISSING VEKTOREN
+y_\alpha &:= \sum^3_{\beta=0} \eta_{\alpha \beta} y^\beta = \eta_{\alpha \beta} y^\beta\\
+&= \eta \cdot \begin{pmatrix}y^0 \\ y^1 \\ y^2 \\ y^3\end{pmatrix} = \begin{pmatrix}y^0 \\ -y^1 \\ -y^2 \\ -y^3\end{pmatrix} 
 \end{aligned}
 \end{equation}
 
@@ -357,7 +385,7 @@ x \cdot y = \sum^3_{\alpha = 0} x^\alpha y_\alpha = x^\alpha y_\alpha
 
 \begin{itemize}
 \item 4-dim Raum-Zeit + Skalarprodukt $\rightarrow$ \underline{Minkowski Raum}
-\item Skalarprodukt \ref{1.11} induziert Metrik \ref{1.8}
+\item Skalarprodukt \ref{glg:1_skalarprodukt4DimRaumZeit} induziert Metrik \ref{glg:1_abstand4DimRaumZeit}
 \end{itemize}
 
 
@@ -373,19 +401,24 @@ x &\rightarrow x^\prime = \Lambda x + b
 $b$ ... 4-dim Vektor für Raum-Zeit-Transformation\\
 $\Lambda$ ... 4-dim Matrix für ''Rotation'' in Raum-Zeit
 
-$\Lambda$, $b$ so wählen, dass \ref{1.3} gewährleistet ist.\\
+$\Lambda$, $b$ so wählen, dass \ref{glg:1_wegelement} gewährleistet ist.\\
 Für $b$: konstant $\surd$ 
 
 Für räumliche Rotation:
 \begin{equation}
-Lambda = MISSING MATRIX \surd
+Lambda = \begin{pmatrix}
+1 & 0& 0& 0 \\
+0 \\
+0 & & \hat{R} \\
+0
+\end{pmatrix} \surd
 \end{equation}
 $\hat{R}$ ... orthogonale Rotationsmatrix ($\hat{R}\hat{R}^T- \hat{R^2} \hat{R} = \hat{1}$)
 
 \begin{itemize}
 \item Bemerkung: Allgemeine Transformation der Form\\
 $x^\prime: \Lambda x + b$\\
-nennt man \underline{Poincaré - Transformation} (wenn sie \ref{1.3} erfüllen)
+nennt man \underline{Poincaré - Transformation} (wenn sie \ref{glg:1_wegelement} erfüllen)
 \begin{equation*}
 \begin{rcases*}
 \text{det}\hat{R} = 1 \text{ keine Raumspiegelung} \\
@@ -411,7 +444,7 @@ dx^{\prime \alpha}\Lambda^\alpha_\beta dx^\beta
 
 \begin{equation}
 \begin{aligned}
-dx^\prime \cdot dx^\prime = dx^{\prime T} \eta dx^\prime = dx^T \underline{\Lambda^T \eta  \Lambda} dx =^!_\text{\ref{1.3}} dx^T \underline{\eta} dx = dx \cdot dx \\
+dx^\prime \cdot dx^\prime = dx^{\prime T} \eta dx^\prime = dx^T \underline{\Lambda^T \eta  \Lambda} dx =^!_\text{\ref{glg:1_wegelement}} dx^T \underline{\eta} dx = dx \cdot dx \\
 \Rightarrow \boxed{\Lambda \eta \Lambda = \eta}
 \end{aligned}
 \end{equation}
@@ -662,13 +695,13 @@ d\tau^2 = \dfrac{ds^2}{c^2} \Rightarrow \text{invariant unter LTen}
 \subsection*{Relativistische Mechanik}
 Relativistisch bewegtes Teilchen unter Einfluss einer Kraft; suchen Bewegungsgleichung\\
 In \underline{momentanen Ruhesystem} des Teilchens zum Zeitpunkt $t$ gilt die Newton'sche Bewegungsgleichung:
-\begin{equation}
+\begin{equation}\label{glg:1_newtonBewegungsgleichung}
 \underbrace{m}_{\mathclap{\text{Ruhemasse}}} \dfrac{d\vec{v}^\prime(t^\prime)}{dt^2} = \underbrace{\vec{F}_N}_{\mathclap{\text{Newton'sche Kraft}}} \text{ in } IS^\prime
 \end{equation}
 (Unabhängig von $IS$)
 
 
-versuchen 4-dimensionales Analogon von \ref{1.35} zu finden, das sich im momentanen Ruhesystem auf \ref{1.35} reduziert.
+versuchen 4-dimensionales Analogon von \ref{glg:1_newtonBewegungsgleichung} zu finden, das sich im momentanen Ruhesystem auf \ref{glg:1_newtonBewegungsgleichung} reduziert.
 
 \begin{tabular}{l | p{8cm}}
 Nichtrelativistisch: & Relativistisch \\ \hline
@@ -689,7 +722,7 @@ $d\tau = \dfrac{ds}{c}$ invariant unter Lten \\
 $dx^\alpha$ 4-Vektor \\
 $\rightarrow u^\alpha = \dfrac{dx^\alpha}{d\tau}$ 4-Vektor
 
-\subsubsection*{relativistische Verallgemeinerung von \ref{1.35}}
+\subsubsection*{relativistische Verallgemeinerung von \ref{glg:1_newtonBewegungsgleichung}}
 
 \begin{equation}
 m \dfrac{du^\alpha}{d\tau} = F^\alpha
@@ -754,7 +787,73 @@ MISSING EINHEIT \\
 MISSING EINHEIT \\
 MISSING EINHEIT \\
 MISSING EINHEIT
+\subsection*{Energie und Impuls}
+Nicht relativistisch:
+\begin{equation*}
+\dfrac{d}{dt} \vec{p}_N = \vec{F}_N
+\end{equation*}
 
+\begin{equation}
+p = p^\alpha := mu = \left( \gamma mc, \gamma m \vec{v} \right) = \left( \dfrac{E}{c}, \vec{p} \right)
+\end{equation}
+
+Relativistische Energie und Impuls:
+\begin{equation}
+E = \gamma m c^2 = \dfrac{mc^2}{\sqrt{1- \frac{v^2}{c^2}}} , \qquad \vec{p} = \gamma \vec{v} m = \dfrac{m \vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{equation}
+
+Nicht relativistischer Grenzfall: $\left( | \vec{v} | \ll c, \qquad \gamma \rightarrow 1 \right)$:
+\begin{equation*}
+\vec{p} \rightarrow \vec{p}_N = m \vec{v}
+\end{equation*}
+
+\begin{equation}
+m \dfrac{du^0}{d\tau} = \dfrac{dp^0}{d\tau} = F^0 \xrightarrow{\gamma \rightarrow 1} \dfrac{dp^0}{dt} = \dfrac{1}{c} \ubtext{\dfrac{dE}{dt}}{zeitliche Änderung der kinetischen Energie in n.r. Mechanik} = \dfrac{\vec{v} F_N}{c}
+\end{equation}
+
+\subsubsection*{Relativistische Energie-Impuls Beziehung}
+\begin{equation*}
+p^\alpha p_\alpha = \dfrac{E^2}{c^2} - \vec{p} = \gamma^2 \left( m^2 c^2 - m^2 \vec{v}^2 \right) = m^2 c^2 \dfrac{1- \frac{\vec{v}^2}{c^2}}{1- \frac{\vec{v}^2}{c^2}} = m^2 c^2
+\end{equation*}
+
+\begin{equation}
+\boxed{E^2 = m^2c^4 + c^2 \vec{p}^2}
+\end{equation}
+
+Masselose Teilchen ($m=0$): $E = c |\vec{p}|$
+
+\begin{equation}
+\begin{aligned}
+E &= E_0 + E_{kin} \\
+E_0 &= mc^2 \qquad &... \text{ Ruheenergie}\\
+E_{kin} &= E -E_0 \qquad &... \text{ kinetische Energie}
+\end{aligned}
+\end{equation}
+
+Für abgeschlossene Systeme ist Gesamtenergie $E$ und Gesamtimpuls $\vec{P}$ erhalten.
+\begin{equation}
+M c^2 = \sqrt{E^2 -c^2P^2}
+\end{equation}
+$M$ $...$ invariante Masse des Gesamtsystems, hängt vom Impuls der einzelnen Teilchen ab.
+
+Atomkern mit $N$ Neutronen und $Z$ Protonen
+\begin{equation}
+\left( N m_n + Z m_p \right) c^2 = \ubtext{M_k}{Kernmasse} c^2 + \ubtext{\Delta E}{Bindungsenergie}
+\end{equation}
+
+
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT \\
+MISSING EINHEIT
 Ausbesserung Beweis:
 \begin{equation*}
 \Lambda^T \eta \Lambda = \eta  \Rightarrow \Lambda \eta \Lambda^T = \eta
@@ -916,7 +1015,7 @@ Für räumliche Komponenten folgt aus \ref{glg:1_partialEnergieImpulsTensor}
 \end{equation}
 
 \ref{glg:1_partialEnergieImpulsTensor} kann geschrieben werden als
-\begin{equation}
+\begin{equation}\label{glg:1_KraftdichteEMFeld}
 \partial_\alpha T^{\alpha \beta}_{em} = - \underbrace{f^\beta}_{\mathclap{\text{Kraftdichte die e.m. Feld auf Stromverteilung ausübt}}}
 \end{equation}
 $\Rightarrow$ Austausch von Energie auf Impuls zwischen e.m. Feld und Strom
@@ -947,9 +1046,8 @@ d \vec{v}(\vec{r}, t) &= dt \dfrac{d\vec{v}}{dt} +dx \dfrac{d\vec{v}}{dx} +dy \d
 \end{equation}
 
 Eulergleichung:
-\begin{equation}
+\begin{equation}\label{glg:1_eulergleichung}
 \rho \left[ \dfrac{\partial \vec{v}}{\partial t} + \left( \vec{v} \cdot \vec{\nabla} \right) \vec{v} \right] = - \vec{\nabla} P + \vec{f}_0
-\label{glg:1_eulergleichung}
 \end{equation}
 
 Kontinuitätsgleichung:
@@ -964,6 +1062,7 @@ Kontinuitätsgleichung:
 5 unbekannte Felder $\rho$, $P$, $v^i$, aber nur 4 Gleichungen.\\
 Brauche Beziehung zwischen $\rho$ und $P$.\\
 \underline{Beispiele:} 
+\renewcommand{\labelitemi}{}
 \begin{itemize}
 \item $\rho = konst.$ $..$ inkompressible Flüssigkeit
 \item $\dfrac{P}{\rho} = konst.$ $...$ ideales Gas bei festem T 
@@ -994,7 +1093,7 @@ $\rho^\prime(x^\prime)$ $...$ Dichte des Flüssigkeitselements $\Delta V$ am Ort
 \left( M^{\alpha \beta} \right) = \rho \gamma^2 c^2 \begin{pmatrix}
 1 & \frac{v^1}{c} & \frac{v^2}{c} & \frac{v^3}{c} \\
 \frac{v^1}{c} \\
-\frac{v^2}{c} & & \dfrac{\vec{v}\vec{v}^T}{c} \\
+\frac{v^2}{c} & & \dfrac{\vec{v}\vec{v}^T}{c^2} \\
 \frac{v^3}{c} \\
 \end{pmatrix}
 \end{equation}
@@ -1038,6 +1137,213 @@ Eulergleichung (Kontinuitätsgleichung für Impulsstrom)
 \end{equation}
 
 \ref{glg:1_differentiellerErhaltungssatzImpulsdichte} differenzieller Erhaltungssatz für 4-Impulsdichte $\Rightarrow$ 4-Impulserhaltung
+
+
+
+%%----------------------------------------18.11.-----------------------------------------
+
+
+Nicht relativistisch, anisotropes Medium (Druck kann Richtungsabhängig sein).\\
+Kraft auf ein gerichtetes Flüssigkeitselement
+
+MISSING GRAFIK
+
+\begin{equation}
+d \vec{F} = \hat{P} d \vec{A} = \sum_{i =1}^3 d F^i \vec{e}^i \qquad \text{mit } dF^i = \sum_{j=1}^3 P^{i j} dA^j
+\end{equation}
+
+Im momentanen Ruhesystem $IS^\prime$ des Flüssigkeitselements an Ort $\vec{x}$ zum Zeitpunkt $t$ und isotroper Druckverteilung:
+\begin{equation}
+\left(P^{\prime ij} \right) = \begin{pmatrix}
+P &0 &0 \\ 0 & P & 0\\ 0&0 & P 
+\end{pmatrix}
+\end{equation}
+
+relativistisch verallgemeinerter 4-Tensor, in $IS^\prime$ gelten \ref{glg:1_eulergleichung} $\rightarrow$ auf rechter Seite steht.
+\begin{equation}
+\partial^\prime_i P = \partial^\prime_j P^{\prime i j}
+\end{equation}
+
+4-Divergenz des Drucktensors auf rechter Seitevon \ref{glg:1_differentiellerErhaltungssatzImpulsdichte}.
+\begin{equation}
+\left( \partial^\prime_\beta P^{\prime \alpha \beta} \right) = \begin{pmatrix}
+0 &  \partial^\prime_i P
+\end{pmatrix}
+\end{equation}
+Druck in $IS^\prime$ ... ''Eigendruck''\\
+Druck in $IS$, in dem Flüssigkeitselement Geschwindigkeit $\vec{v}$ aufweist $\rightarrow$ Lorentzboost mit $- \vec{v}$
+
+\begin{equation}
+P^{\alpha \beta} = \Lambda^\alpha_\gamma \Lambda^\beta_\delta P^{\prime \gamma \delta} = P \left( \dfrac{u^\alpha u^\beta}{c^2} - \eta^{\alpha \beta} \right)
+\end{equation}
+
+Eulergleichung + Kontinuitätsgleichung relativistisch (für $\vec{f}_0 = 0$)
+
+\begin{equation}
+\partial_\beta M^{\alpha \beta} + \partial_\beta P^{\alpha \beta} = 0
+\end{equation}
+
+
+\subsection*{Energie Impulstensor}
+\begin{equation}
+T^{\alpha \beta} = M ^{\alpha \beta} + P ^{\alpha \beta} = \left( \rho + \dfrac{P}{c^2} \right) u^\alpha u^\beta - \eta^{\alpha \beta} P
+\end{equation}
+
+Eulergleichung + Kontinuitätsgleichung mit Energie Impulstensor:
+\begin{equation}
+\partial_\beta T^{\alpha \beta} = 0
+\end{equation}
+
+Mit äußeren Kräften ($\vec{f}_0 \rightarrow$ Minkowskikraft $f^\alpha$):
+
+Relativistische Grundgleichung der Hydrodynamik:
+\begin{equation}
+\boxed{
+\partial_\beta T^{\alpha \beta} = f^\alpha}
+\end{equation}
+
+
+
+
+Für abgeschlossens System ($f^\alpha = 0$):
+\begin{equation}
+\partial_\beta T^{\alpha \beta} = 0
+\end{equation}
+Kontinuitätsgleichung für Energie- und Impulsdichten
+
+\begin{equation}
+\dfrac{\partial}{\partial (c t)} \int_{\mathbb{R}^3} d^3 r T^{\alpha 0} = -  \int_{\mathbb{R}^3} d^3 r \partial_i T^{\alpha i} \overset{\text{Gauss}}{=} -  \int_{\partial (\mathbb{R}^3)} dS_i T^{\alpha i} = 0
+\end{equation}
+
+$T^{\alpha i}(x) \xrightarrow{| \vec{x} | \rightarrow \infty} 0$ genügend schnell\\
+$\Rightarrow$ 4- Impulserhaltung
+\begin{equation}
+P^\alpha = \dfrac{1}{c}  \int_{\mathbb{R}^3} d^3r T^{\alpha 0} = konst \qquad \alpha = 0,1,2,3
+\end{equation}
+
+
+
+\begin{equation}
+\begin{aligned}
+&T^{00} \rightarrow \text{ Energiedichte } \Rightarrow  \int_{\mathbb{R}^3} d^3r T^{00} \text{ Energie } \\
+&\dfrac{T^{i0}}{c} \rightarrow \text{ Impulsdichte } \Rightarrow  \int_{\mathbb{R}^3} d^3r \dfrac{T^{i0}}{0} \text{ Impuls }
+\end{aligned}
+\end{equation}
+
+
+$cP^0$ $...$ Energie\\
+$P^i$ $...$ Impuls
+
+
+Energie- Impulserhaltung gilt für abgeschlossne Systeme\\
+geladene Flüssigkeit, auf die e.m. Kräfte wirken
+\begin{equation}
+\partial_\beta T^{\alpha \beta} = \ubtext{f^\alpha}{Minkowskikraftdichte} \overset{\text{\ref{glg:1_KraftdichteEMFeld}}}{=} - \partial_\beta \ubtext{T^{\alpha \beta}_{em}}{Energie-Impulstensor des e.m. Feldes}
+\end{equation}
+
+\begin{equation}
+\partial_\beta \left( T^{\alpha \beta} + T^{\alpha \beta}_{em} \right) = 0
+\end{equation}
+
+\underline{Allgemein:}
+
+$\Rightarrow$ Energie und Impulserhaltung für Gesamtsystem aber nicht getrennt für Flüssigkeit und e.m. Feld.\\
+Zusätzliche Kräfte können zu Bestandteil des Energie- Impulstensor gemacht werden, sodass in Energie- Impulstensor alle Energieformen berücksichtigt sind.
+
+\begin{equation}
+T^{\alpha \beta} = M^{\alpha \beta} + P^{\alpha \beta} + T^{\alpha \beta}_{em} + ...
+\end{equation}
+
+\begin{equation}
+\partial T^{\alpha \beta} = 0, \qquad T^{\alpha \beta} = T^{\beta \alpha}
+\end{equation}
+Energie- Impulstensor für Gesamtsystem
+
+
+\begin{tabular}{c | c}
+\underline{Elektrodynamik} 
+& \underline{ideale Flüssigkeit} \\
+$\rho_{el}$ $...$ elektrische Ladungsdichte 
+& $\tilde{\rho} = \gamma^2 \rho$ $...$ Energie- Massedichte \\
+$(j^\alpha)$ $...$ $( \rho_{el}, \vec{j} )$ Strom
+& $\left( T^{\alpha \beta} \right) = \begin{pmatrix}
+c^2 \tilde{\rho} = c^2 \gamma^2 \rho & \cdots \\ \hdots
+\end{pmatrix}$ \\
+$\partial j^\alpha = 0$ $\Rightarrow$ Ladungserhaltung
+& $\partial T^{\alpha \beta} = 0$ $\Rightarrow$ 4-Impuls\\
+$j^\alpha$ $...$ Quelle des e.m. Felds 
+& $T^{\alpha \beta}$  $...$ Quelle des Gravitationsfeldes \\
+$\square A^\alpha (x) = \dfrac{4 \pi}{c} j^\alpha (x)$ & 
+ $\square g^{\alpha \beta}(x) \sim G T^{\alpha \beta}(x)$ \\
+$...$ inhomogene Maxwellgleichung & $...$ Einstein'sche Feldgleichung \\
+& $T^{\alpha \beta}$ enthält \underline{alle} Energieformen \\&
+Wie sieht $g_{\alpha \beta}(x)$ aus? \\
+& Enthält $T^{\alpha \beta}$ auch die Energie des \\& Gravitationsfeldes?
+\end{tabular}
+
+
+\newpage
+\section{Grundlagen der \\Allgemeinen Relativitätstheorie}
+
+\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
+\item relativistische Gleichungen $\xrightarrow{|\vec{v}| \ll c}$ nichtrelativistische Gleichungen
+
+\item Kovarianzprinzip:relativistische Gleichungen lassen sich im kovarianter Form, das heißt als gleichungen für Lorentz-Tensoren formulieren, die forminvariant unter Lorentz-Transformationen sind
+\end{itemize}
+
+Für relativistische Formulierung der Gravitation
+\begin{itemize}
+\item \underline{Äquivalenzprinzip}\\
+\underline{Schwache Form}: träge und schwere Masse sind gleich\\
+\underline{Starke Form} (Einstein'sches Äquivalenzprinzip):\\
+Für ein beliebiges Gravitationsfeld ist es in jedem Raum- Zeitpunkt $X$ möglich, ein \underline{lokales Inertialsystem} zu finden, sodass in einer hinreichend kleinen Umgebung des Punktes $X$ die Gesetze der speziellen Relativitätstheorie \underline{ohne Gravitation} gelten.
+
+ART $\xrightarrow{\text{Äquivalenzprinzip}}$ SRT\\
+(analog SRT $\xrightarrow{|\vec{v}| \ll c}$ NM)
+\item \underline{Allgemeines Kovarianzprinzip}: Gleichungen der ART sind forminvariant (kovariant) unter allgemeinen (nicht singuläre) Koordinatentransformationen $x \rightarrow x^\prime$.
+\end{itemize}
+
+\subsection*{Äquivalenzprinzip}
+Frei fallender Körper nahe der Erdoberfläche (nicht relativistisch)
+\begin{equation*}
+m_t z^{MISSING PUNKT PUNKT} = -m_s g
+\end{equation*}
+
+Für $z(0) = 0$, $\dot{z}(0) = 0 $ ist die Lösung
+\begin{equation}
+z(t) = - \dfrac{1}{2} \dfrac{m_s}{m_t} g t^2
+\end{equation}
+
+Für Pendel bei kleinen Auslenkungen ist die Schwingungsdauer
+\begin{equation*}
+\left(\dfrac{T}{2 \pi} \right)^2 = \left(\dfrac{m_t}{m_s} \right) \left( \dfrac{l}{g} \right)
+\end{equation*}
+
+Konstanu von $\dfrac{m_s}{m_t}$:\\
+Newton: auf $10^{-3}$ genau\\
+Eötvös (1922): auf $ 5 \times 10^{-9}$ genau\\
+Aktuelles Ergebnis: auf $2 \times 10^{-13}$ genau
+
+
+$[m_s] = [m_t] = 1 \text{ kg}$\\
+$\Rightarrow$ Wert von $G$ in \ref{glg:0_Gravitationskonstante}\\
+$m_s = m_t$\\
+Trägt Energie des Gravitationsfeldes auch zu $m_s$ und $m_t$ in gleichem Maße bei?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
