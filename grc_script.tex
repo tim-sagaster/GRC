@@ -1316,11 +1316,11 @@ z(t) = - \dfrac{1}{2} \dfrac{m_s}{m_t} g t^2
 \end{equation}
 
 Für Pendel bei kleinen Auslenkungen ist die Schwingungsdauer
-\begin{equation*}
+\begin{equation}
 \left(\dfrac{T}{2 \pi} \right)^2 = \left(\dfrac{m_t}{m_s} \right) \left( \dfrac{l}{g} \right)
-\end{equation*}
+\end{equation}
 
-Konstanu von $\dfrac{m_s}{m_t}$:\\
+Konstanz von $\dfrac{m_s}{m_t}$:\\
 Newton: auf $10^{-3}$ genau\\
 Eötvös (1922): auf $ 5 \times 10^{-9}$ genau\\
 Aktuelles Ergebnis: auf $2 \times 10^{-13}$ genau
@@ -1328,26 +1328,259 @@ Aktuelles Ergebnis: auf $2 \times 10^{-13}$ genau
 
 $[m_s] = [m_t] = 1 \text{ kg}$\\
 $\Rightarrow$ Wert von $G$ in \ref{glg:0_Gravitationskonstante}\\
-$m_s = m_t$\\
+$m_s = m_t$
+
 Trägt Energie des Gravitationsfeldes auch zu $m_s$ und $m_t$ in gleichem Maße bei?
 
 
+%%----------------------------------------25.11.-----------------------------------------
+MISSING EQNUMBER
+\setcounter{equation}{5}
+MISSING GRAFIK (Erde Satelit)
 
 
+\underline{Lokales IS}. Gegenüber Fixsternhimmel beschleunigt.
+In (infinitesimal) kleinem Raum-Zeitvolumen spielen sich physikalische Vorgänge wie in einem IS ohne Gravitationskräfte ab.
+
+\subsection*{Relativistische Gesetze mit Gravitation}
 
 
+\begin{equation*}
+\text{SRT-Gesetze: ohne Gravitation} \underset{\text{lokales IS} \leftrightarrow \text{globales BS des Beobachters}}{\xleftrightarrow{\text{Koordinatentr.}}} \text{Relativistische Gesetze mit Gravitation}
+\end{equation*}
+
+Gravitative Effekte lassen sich nur \underline{lokal wegtransformieren}\\
+Beobachter (KS): Koordinaten $(x^0, x^1, x^2, x^3)$
 
 
+Lokales IS (Minkowskiraum): Koordinaten $(\xi^0,  \xi^1, \xi^2, \xi^3)$
+
+\begin{equation}
+IS \rightarrow KS: \qquad \xi^\alpha = \xi^\alpha (x^0, x^1, x^2, x^3)
+\end{equation}
+MISSING BESCHRIFTUNG 2.6A
+
+Invarianz des Wegelements $ds$:
+\begin{equation}
+IS: \quad ds^2 = \eta_{\alpha \beta} d\xi^\alpha d \xi^\beta
+\end{equation}
+
+\begin{equation}
+KS: \quad ds^2 = MISSING GLEICHUNG
+\end{equation}
 
 
+Ortsabhängiger metrischer Tensor:
+\begin{equation}
+g_{\mu \nu}(x) = MISSING GLEICHUNG
+\end{equation}
+MISSING BESCHRIFTUNG 2.9A
 
 
+Raum (Manigfaltigkeit) mit ortsabhängiger Metrik $...$ Riemanscher Raum\\
+(genauer $g_{\mu\nu}x^\mu x^\nu \geq 0 $ mit $=0$, wenn $x=0$)
+
+$\alpha, \beta, \gamma, \delta$ $...$ $(=0,1,2,3)$ im Minkowskiraum
+
+$\mu, \nu, \lambda, \kappa$ $...$ $(=0,1,2,3)$ Riemanraum
+
+$g_{\mu \nu}(x)$ wird von Koordinaten (\ref{2.6 a}) bestimmt und hängt von relativer Beschleunigung zwischen $KS$ und $IS$ ab.
+
+Für lokale $IS$e an zwei verschiedenen Orten sind Beschleunigungen im allgemeinen verschieden $\Rightarrow$ Für reale Gravitationsfelder gibt es \underline{keine globale} Transformation, die den (\ref{2.9a}) auf Minkowskitransformation bringt.\\
+($\Leftrightarrow$ Riemann-Raum gekrümmt)
+
+Ursprung von lokalem $IS$ bei $\ubtext{X}{Koordinate im $KS$} = (X^0, X^1, X^2, X^3)$
+
+\begin{equation*}
+\xi^\alpha_X (x^0, x^1, x^2, x^3)
+\end{equation*}
+MISSING BESCHRIFTUNG 2.6b
+
+\begin{equation*}
+g^{\mu \nu}(X) = \eta_{\alpha \beta} \dfrac{\partial\xi^\alpha}{\partial x ^\mu} \dfrac{\partial \xi^\beta}{\partial x^\nu} |_{x=X}  
+\end{equation*}
+MISSING BESCHRIFTUNG 2.9b
+
+Für realistische Gravitationsfelder kann $\xi^\alpha_X$ nicht $X$ unabhängig gewählt werden.
+
+\subsection*{Bewegung in Gravitationsfeld}
+Im \underline{lokalen $IS$} kräftefreie Bewegung von Massepunkt:
+
+\begin{equation}
+\dfrac{d^2 \xi}{d \tau^2} = 0
+\end{equation}
+
+Eigenzeit:
+\begin{equation}
+ds^2 = c^2 d\tau^2 = \eta_{\alpha \beta} d \xi^\alpha d \xi^\beta
+\end{equation}
+
+Lösung:
+\begin{equation}
+\xi^\alpha = a^\alpha \tau + b^\alpha
+\end{equation}
+gilt für \underline{massive} Teilchen.
+
+Für \underline{masselose} Teilchen gilt: $ds = cd\tau = 0 \Rightarrow d \tau = 0 \Rightarrow$ Bahn von masselosen Teilchen kann nicht mit Eigenzeit parametrisisert werden.\\
+Masseloses Teilchen bewegt sich ohne äußere Kräfte mit konstanter Geschwindigkeit $c$ $\Rightarrow$ lässt sich in der Form $\xi^\alpha =c n^\alpha \sigma + b^\alpha$ mit Bahnparameter $\sigma$ mit $(n^2 = 0)$ parametrisieren.
+
+$\Rightarrow$ Bewegungsgleichung
+\begin{equation}
+\dfrac{d^2\xi}{d\sigma^2} = 0
+\end{equation}
+
+mit $(ds^2 = 0 \Rightarrow \left( \dfrac{ds}{d\sigma} \right) ^2 = 0)$
+\begin{equation}
+\eta_{\alpha \beta} \dfrac{d\xi^\alpha}{d\sigma} \dfrac{d\xi^\beta}{d\sigma} =0
+\end{equation}
 
 
+Im \underline{globalen $KS$} des Beobachters:
+\begin{equation}
+0 = MISSING GLEICHUNG
+\end{equation}
+
+\begin{equation}
+\dfrac{\partial x^\kappa}{\partial \xi^\alpha} \dfrac{\partial \xi^\alpha}{\partial x^\mu} = \delta^\kappa_\mu
+\end{equation}
+
+\begin{equation}
+0 = MISSING GLEICHUNG
+\end{equation}
+
+Hilfsgröße:
+\begin{equation}
+\Gamma^\kappa_{\mu \nu} := \dfrac{\partial x^\kappa}{\partial \xi^\alpha} \dfrac{\partial^2 \xi^\alpha}{\partial x^\mu \partial x^\nu}
+\end{equation}
+
+\begin{equation}
+\boxed{
+\dfrac{d^2x^\kappa}{d\tau^2} = -\Gamma^\kappa_{\mu \nu} \dfrac{dx^\mu}{d\tau} \dfrac{dx^\nu}{d\tau}}
+\end{equation}
+
+$\Gamma^\kappa_{\mu \nu}$ $...$ affiner Zusammenhang, Christoffelsymbol (2.Art)
+
+$x^\kappa (\tau)$ $...$ Teilchenbahn im $KS$ in Abhängikeit von Eigenzeit $\tau$
+
+\begin{equation*}
+ds^2 = c^2 d\tau^2 = g_{\mu \nu} (x) dx^\mu dx^\nu
+\end{equation*}
+$\Rightarrow$ zusätzliche Bedingung:
+\begin{equation}
+g_{\mu \nu} (x) \dfrac{dx^\mu}{d \tau} \dfrac{dx^\nu}{d \tau} = c^2
+\end{equation}
 
 
+Für masseloses Photon:
+\begin{equation}
+\dfrac{d^2 x^\kappa}{d \sigma^2} = - \Gamma^\kappa_{\mu \nu} \dfrac{dx^\mu}{d\sigma} \dfrac{dx^\nu}{d\sigma}
+\end{equation}
+
+$ds^2 = d\tau^2 = 0$ Zusatzbedingung:
+\begin{equation}
+g_{\mu \nu} (x) \dfrac{dx^\mu}{d \sigma} \dfrac{dx^\nu}{d \sigma} = 0
+\end{equation}
+
+\subsection*{Christoffelsymbole und metrischer Tensor}
+
+\begin{equation}
+g_{\mu \nu} (x) = \eta_{\alpha \beta} \dfrac{\partial\xi^\alpha}{\partial x ^\mu} \dfrac{\partial \xi^\beta}{\partial x^\nu}, \qquad 
+\Gamma^\kappa_{\mu \nu} = \dfrac{\partial x^\kappa}{\partial \xi^\alpha} \dfrac{\partial^2 \xi^\alpha}{\partial x^\mu \partial x^\nu}
+\end{equation}
 
 
+\begin{equation}
+\begin{aligned}
+\dfrac{\partial g_{\mu \nu}}{\partial x^\lambda} + \dfrac{\partial g_{\lambda \nu}}{\partial x^\mu} - \dfrac{\partial g_{\mu \lambda}}{\partial x^\nu} &= MISSING GLEICHUNG\\
+&\quad + MISSING GLEICHUNG
+\end{aligned}
+\end{equation}
 
+\begin{equation}
+\begin{aligned}
+g_{\nu \sigma} \Gamma^\sigma_{\mu \lambda} &= \eta_{\alpha \beta} \dfrac{\partial\xi^\alpha}{\partial x ^\nu} \underbrace{\dfrac{\partial \xi^\beta}{\partial x^\sigma} \dfrac{\partial x^\sigma}{\partial \xi^\gamma}}_{\delta^\beta_\gamma} \dfrac{\partial^2 \xi^\gamma}{\partial x^\mu \partial x^\lambda} \\
+&= \eta_{\alpha \beta} \dfrac{\partial\xi^\alpha}{\partial x ^\nu} \dfrac{\partial^2 \xi^\beta}{\partial x^\mu \partial x^\lambda} \\
+&\overset{\ref{2.24}}{=} MISSING GLEICHUNG
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+g^{\kappa \nu} g_{\nu \sigma} = \delta^\kappa_\sigma
+\end{equation}
+
+\begin{equation}
+\boxed{
+\Gamma^\kappa_{\mu \lambda} = MISSING GLEICHUNG}
+\end{equation}
+
+
+\begin{equation}
+\Gamma^\kappa_{\mu \lambda} = \Gamma^\kappa_{\lambda \mu}
+\end{equation}
+
+
+\subsubsection*{Newtonscher Grenzfall}
+Newton-Theorie (nicht relativistisch):
+\begin{equation}
+\dfrac{d^2x^i}{dt^2} = - \dfrac{\partial \Phi}{\partial x^2}
+\end{equation}
+$\Phi(\vec{r})$ $..$ statisches (d.h. zeitunabhängiges) Gravitationspotential
+
+Für $\Phi(\vec{r})$ schwach und $|\vec{v}| \ll c$ sollte \ref{2.19} in \ref{2.29} übergehen.
+
+Für \underline{$\Phi(\vec{r})$ schwach:}
+\begin{equation}
+g_{\mu \nu}(x) = MISSING GLEICHUNG
+\end{equation}
+mit
+\begin{equation}
+|h_{\mu \nu}| = | g_{\mu \nu} - \eta _{\mu \nu}| \ll 1
+\end{equation}
+
+Koordinaten in $KS$: $MISSING GLEICHUNG$\\
+sind ''fast'' Minkowskikoordinaten (aber nicht ganz)
+
+Kleine Geschwindigkeit: 
+\begin{equation}
+\left| v^i \right| = \left| \dfrac{dx^i}{dt} \right| \ll c \qquad \text{bzw.} \qquad MISSING GLEICHUNG
+\end{equation}
+
+
+\begin{equation}
+\text{\ref{2.19}} \Rightarrow MISSING GLEICHUNG
+\end{equation}
+
+\begin{equation}
+\ref{2.28}, \ref{2.30} \Rightarrow MISSING GLEICHUNG
+\end{equation}
+MISSING BESCHRIFTUNG 2.34a
+
+\begin{equation*}
+\left( \Gamma^\kappa_{00} \right) = \left( 0, \frac{1}{2} \vec{\nabla} h_{00} \right)
+\end{equation*}
+MISSING BESCHRIFTUNG 2.34b
+
+\begin{equation}
+\dfrac{d^2x^0}{d\tau^2} = c \dfrac{d^2t}{d\tau^2} = 0 \qquad \Rightarrow \dfrac{dt}{d\tau} = konst. = K \qquad dt = K d\tau
+\end{equation}
+MISSING BESCHRIFTUNG 2.35a
+
+\begin{equation*}
+MISSING GLEICHUNG
+\end{equation*}
+MISSING BESCHRIFTUNG 2.35b
+
+\begin{equation}
+MISSING GLEICHUNG
+\end{equation}
+
+\begin{equation}
+MISSING GLEICHUNG
+\end{equation}
+
+\begin{equation}
+\boxed{
+MISSING GLEICHUNG}
+\end{equation}
 
 \end{document}
